@@ -1,4 +1,4 @@
-```markdown
+
 # Initial Documentation
 
 ## Project Overview
