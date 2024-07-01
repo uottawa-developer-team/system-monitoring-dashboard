@@ -1,0 +1,17 @@
+# Flask: Lightweight WSGI web application framework
+Flask==2.1.1
+
+# Matplotlib: Comprehensive library for creating static, animated, and interactive visualizations
+matplotlib==3.5.1
+
+# Plotly: Interactive graphing library
+plotly==5.5.0
+
+# Pandas: Data analysis and manipulation library (if needed for data handling)
+pandas==1.4.2
+
+# Psutil: Cross-platform library for retrieving information on running processes and system utilization
+psutil==5.9.0
+
+# Flask-Cors: Extension for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+Flask-Cors==3.0.10
