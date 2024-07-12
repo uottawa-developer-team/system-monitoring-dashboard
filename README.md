@@ -89,8 +89,8 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contacts
-- **Project Manager:** [Hezekiah Shobayo: ishob080@uottawa.ca]
-- **Developers:** [Hezekiah Shobayo](https://www.linkedin.com/in/hezekiah-shobayo/), [Adam Norris](anorr029@uottawa.ca)
+- **Project Manager:** [Hezekiah Shobayo: ishob080@uottawa.ca] [Adam Norris: anorr029@uottawa.ca]
+- **Developers:** [Hezekiah Shobayo](https://www.linkedin.com/in/hezekiah-shobayo/), [Adam Norris](https://www.linkedin.com/in/adam-j-norris/)
 
 
   
