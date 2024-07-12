@@ -7,7 +7,7 @@
 - **Repository:** [system-monitoring-dashboard](https://github.com/uottawa-developer-team/system-monitoring-dashboard)
 
 ## Team Members
-- **Project Manager:** [Hezekiah Shobayo]
+- **Project Manager:** [Hezekiah Shobayo, Adam Norris]
 - **Developers:** [Hezekiah Shobayo, Adam Norris]
 - **Contributors:** []
 
@@ -94,8 +94,8 @@
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ## Contacts
-- **Project Manager:** [Hezekiah Shobayo, ishob080@uottawa.ca]
-- **Lead Developer:** [Hezekiah Shobayo](https://www.linkedin/in/hezekiah-shobayo/), [Adam Norris]
+- **Project Manager:** [Hezekiah Shobayo, ishob080@uottawa.ca], [Adam Norris, anorr029@uottawa.ca]
+- **Lead Developer:** [Hezekiah Shobayo](https://www.linkedin/in/hezekiah-shobayo/), [Adam Norris](https://www.linkedin/in/adam-j-norris/)
 ```
 
 This documentation provides a clear overview of the project, the setup process, development phases, and contribution guidelines. It should help in onboarding new team members and providing a clear direction for the project's development.
