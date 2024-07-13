@@ -3,14 +3,14 @@
 ## Introduction
 **Overview of Sprint 1:**
 - Sprint 1 began on July 1st and concluded on July 13th.
-  The focus of Sprint 1 was to establish consistent development environments for both lead developpers, and make preliminary BASH scripts to gather
+  The focus of Sprint 1 was to establish consistent development environments for both lead developers and make preliminary BASH scripts to gather
   core data to be used and charted in later phases. These goals were achieved, and four scripts were written to gather RAM usage, network activity,
   available and total disk space, and CPU usage
 
 **Objectives and Goals:**
-- Establish development environments
-- Write BASH scripts for data logging
-- Establish documentation format
+- Establish development environments.
+- Write BASH scripts for data logging.
+- Establish documentation format.
 
 ## Completed Work
 ### Task 1: [Establish development evironments]
