@@ -1,8 +1,39 @@
 #!/bin/bash
 
 # get current date & time
-echo $(date +"%Y-%m-%d %H:%M:%S") >> ../data/disk_space.log
+timestamp=$(date +"%Y-%m-%d %H:%M:%S") 
 
 # get data
-df -h | grep "/dev/sd" >> ../data/disk_space.log
+disk_data=$(df -h --output=source,size,used,avail,pcent | grep "^/dev/") 
+
+echo "$timestamp" >> ../data/disk_data.log
+echo "$disk_data" >> ../data/disk_data.log
+
+#create a json representation of the data
+create_json(){
+	
+	json=$(jq -n \
+		--arg timestamp "$timestamp" \
+        --arg disk_data "$disk_data" \
+        '{
+            timestamp: $timestamp,
+            disk: ($disk_data | split("\n") | map(
+                capture("^(?<device>/dev/[^ ]+) +(?<size>[^ ]+) +(?<used>[^ ]+) +(?<avail>[^ ]+) +(?<use_pcent>[^ ]+)$") | 
+                {
+                    device: .device,
+                    size: .size,
+                    used: .used,
+                    avail: .avail,
+                    use_pcent: .use_pcent
+                }
+            )),
+	
+		}')
+	echo "$json"	
+}
+
+
+# Save data to files
+create_json >> "../json_datalog/disk_data.json"
+
 
