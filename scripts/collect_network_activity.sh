@@ -3,15 +3,6 @@
 #get current date & time
 timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 
-#run ifconfig to get network info
-network_info=$(ifconfig)
-
-#use grep to filter lines starting with non-space or newline chars (aka the interface names)
-interface_lines=$(echo "$network_info" | grep -E '^[a-zA-Z0-9]')
-
-#use awk to extract interface names
-interfaces=$(echo "$interface_lines" | awk '{print $1}')
-
 primary_interface=$(ip route | grep default | awk '{print $5}') #use ip command to get primary network interface
 
 if [[ -n $primary_interface ]]; then #if not null
@@ -31,8 +22,31 @@ else #if null
 fi
 
 #combine interfaces & stats into clean data string
-clean_data="Interfaces:\n$interfaces\nPrimary Interface: $primary_interface\nStats: $network_stats"
+clean_data="Primary Interface: $primary_interface\nStats: $network_stats"
 
 #log network activity with timestamp
 echo "$timestamp" >> ../data/network_activity.log
 echo -e "$clean_data" >> ../data/network_activity.log
+
+
+#create a json representation of the data
+create_json(){
+	
+	json=$(jq -n \
+		--arg timestamp "$timestamp"\
+		--arg primary_interface "$primary_interface"\
+		--arg rx_bytes "$rx_bytes"\
+		--arg tx_bytes "$tx_bytes"\
+		'{
+			timestamp: $timestamp,
+			network: {
+				primary_interface: ($primary_interface),
+                rx_bytes: $rx_bytes,
+                tx_bytes: $tx_bytes,	
+			}
+		}')
+	echo "$json"	
+}
+
+# Save data to files
+create_json >> "../json_datalog/network_data.json"
