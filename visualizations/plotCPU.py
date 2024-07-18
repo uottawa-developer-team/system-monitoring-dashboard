@@ -1,4 +1,4 @@
-from matplotlib import pyplot as plt, dates as mdates
+from matplotlib import pyplot as plt, dates as mdates # type: ignore
 import json
 from datetime import datetime, timedelta
 

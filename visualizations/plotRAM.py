@@ -1,4 +1,4 @@
-from matplotlib import pyplot as plt, dates as mdates
+from matplotlib import pyplot as plt, dates as mdates # type: ignore
 import json
 from datetime import datetime, timedelta
 
@@ -37,7 +37,7 @@ def plotData(data):
     plt.show()
 
 #runspace
-t1 = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
+t1 = (datetime.now() - timedelta(minutes=30)).strftime("%Y-%m-%d %H:%M:%S")
 t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 plotData(grabData(t1, t2))
