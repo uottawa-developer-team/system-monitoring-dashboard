@@ -16,6 +16,7 @@ clean_data=$(printf "Total: %sMB Used: %sMB" "$total_memory" "$used_memory")
 echo "$timestamp" >> ../data/memory_usage.log
 echo "$clean_data" >> ../data/memory_usage.log
 
+# parse data for easier readability by create_json function
 memory_data=$(echo "$memory_data" | awk '{print $2,$3,$4,$5,$6,$7}')
 
 #create a json representation of the data
@@ -39,5 +40,29 @@ create_json(){
 	echo "$json"	
 }
 
-# Save data to files
-create_json >> "../json_datalog/memory_usage.json"
+# Path to file to save JSON data
+file="../json_datalog/memory_usage.json"
+
+# Hard-coding Edge cases for the JSON format file
+
+# Create the file if it doesn't exist
+if [ -f "$file" ]; then
+    if [[ $(head -n 1 "$file") != "[" ]]; then
+        echo "[" > $file
+        create_json >> $file
+    else
+        if [[ $(tail -n 1 $file)  == "]" ]]; then
+            sed -i '$d' $file
+        fi
+        last_line=$(tail -n 1 "$file")
+        last_line+=","
+        sed -i "$ s/.*/$last_line/" "$file"
+        create_json >> $file
+    fi
+else
+    # file does not exist, create it
+    echo "[" > $file
+    create_json >> $file
+fi
+
+echo "]" >> $file

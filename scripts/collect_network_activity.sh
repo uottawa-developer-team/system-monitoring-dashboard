@@ -48,5 +48,29 @@ create_json(){
 	echo "$json"	
 }
 
-# Save data to files
-create_json >> "../json_datalog/network_data.json"
+# Path to file to save JSON data
+file="../json_datalog/network_data.json"
+
+# Hard-coding Edge cases for the JSON format file
+
+# Create the file if it doesn't exist
+if [ -f "$file" ]; then
+    if [[ $(head -n 1 "$file") != "[" ]]; then
+        echo "[" > $file
+        create_json >> $file
+    else
+        if [[ $(tail -n 1 $file)  == "]" ]]; then
+            sed -i '$d' $file
+        fi
+        last_line=$(tail -n 1 "$file")
+        last_line+=","
+        sed -i "$ s/.*/$last_line/" "$file"
+        create_json >> $file
+    fi
+else
+    # file does not exist, create it
+    echo "[" > $file
+    create_json >> $file
+fi
+
+echo "]" >> $file
