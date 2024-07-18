@@ -1,0 +1,34 @@
+[
+{
+  "timestamp": "2024-07-17 19:29:39",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "4796179751",
+    "tx_bytes": "388990792"
+  }
+},
+{
+  "timestamp": "2024-07-17 19:29:40",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "4796277422",
+    "tx_bytes": "389199075"
+  }
+},
+{
+  "timestamp": "2024-07-17 19:29:41",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "4796332889",
+    "tx_bytes": "389295807"
+  }
+},
+{
+  "timestamp": "2024-07-17 19:29:42",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "4796354865",
+    "tx_bytes": "389361105"
+  }
+}
+]
