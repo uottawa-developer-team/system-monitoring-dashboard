@@ -1,0 +1,332 @@
+[
+{
+  "timestamp": "2024-07-18 16:07:19",
+  "memory": {
+    "total": "15877",
+    "used": "6427",
+    "free": "6583",
+    "shared": "840",
+    "buff_cache": "4035",
+    "available": "9450"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:08:19",
+  "memory": {
+    "total": "15877",
+    "used": "6378",
+    "free": "6627",
+    "shared": "940",
+    "buff_cache": "4140",
+    "available": "9499"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:09:20",
+  "memory": {
+    "total": "15877",
+    "used": "5845",
+    "free": "7163",
+    "shared": "747",
+    "buff_cache": "3945",
+    "available": "10032"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:10:20",
+  "memory": {
+    "total": "15877",
+    "used": "6478",
+    "free": "6504",
+    "shared": "887",
+    "buff_cache": "4111",
+    "available": "9399"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:11:20",
+  "memory": {
+    "total": "15877",
+    "used": "6217",
+    "free": "6772",
+    "shared": "875",
+    "buff_cache": "4092",
+    "available": "9659"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:12:20",
+  "memory": {
+    "total": "15877",
+    "used": "6492",
+    "free": "6487",
+    "shared": "1066",
+    "buff_cache": "4293",
+    "available": "9385"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:13:21",
+  "memory": {
+    "total": "15877",
+    "used": "6352",
+    "free": "6608",
+    "shared": "815",
+    "buff_cache": "4061",
+    "available": "9525"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:14:21",
+  "memory": {
+    "total": "15877",
+    "used": "6231",
+    "free": "6741",
+    "shared": "790",
+    "buff_cache": "4024",
+    "available": "9646"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:15:21",
+  "memory": {
+    "total": "15877",
+    "used": "6232",
+    "free": "6751",
+    "shared": "769",
+    "buff_cache": "3991",
+    "available": "9645"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:16:22",
+  "memory": {
+    "total": "15877",
+    "used": "6414",
+    "free": "6560",
+    "shared": "797",
+    "buff_cache": "4028",
+    "available": "9463"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:17:22",
+  "memory": {
+    "total": "15877",
+    "used": "6424",
+    "free": "6543",
+    "shared": "791",
+    "buff_cache": "4030",
+    "available": "9453"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:18:22",
+  "memory": {
+    "total": "15877",
+    "used": "6680",
+    "free": "6283",
+    "shared": "820",
+    "buff_cache": "4062",
+    "available": "9197"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:19:22",
+  "memory": {
+    "total": "15877",
+    "used": "6358",
+    "free": "6597",
+    "shared": "785",
+    "buff_cache": "4035",
+    "available": "9519"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:20:23",
+  "memory": {
+    "total": "15877",
+    "used": "5805",
+    "free": "7166",
+    "shared": "798",
+    "buff_cache": "4033",
+    "available": "10071"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:21:23",
+  "memory": {
+    "total": "15877",
+    "used": "5948",
+    "free": "7019",
+    "shared": "832",
+    "buff_cache": "4071",
+    "available": "9929"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:22:23",
+  "memory": {
+    "total": "15877",
+    "used": "5744",
+    "free": "7218",
+    "shared": "749",
+    "buff_cache": "3993",
+    "available": "10133"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:23:24",
+  "memory": {
+    "total": "15877",
+    "used": "6042",
+    "free": "6919",
+    "shared": "730",
+    "buff_cache": "3974",
+    "available": "9835"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:24:24",
+  "memory": {
+    "total": "15877",
+    "used": "5989",
+    "free": "6972",
+    "shared": "721",
+    "buff_cache": "3965",
+    "available": "9888"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:25:24",
+  "memory": {
+    "total": "15877",
+    "used": "5986",
+    "free": "6975",
+    "shared": "729",
+    "buff_cache": "3974",
+    "available": "9891"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:26:24",
+  "memory": {
+    "total": "15877",
+    "used": "5992",
+    "free": "6969",
+    "shared": "724",
+    "buff_cache": "3969",
+    "available": "9885"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:27:25",
+  "memory": {
+    "total": "15877",
+    "used": "6077",
+    "free": "6879",
+    "shared": "779",
+    "buff_cache": "4028",
+    "available": "9800"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:28:25",
+  "memory": {
+    "total": "15877",
+    "used": "6124",
+    "free": "6820",
+    "shared": "714",
+    "buff_cache": "3976",
+    "available": "9753"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:29:25",
+  "memory": {
+    "total": "15877",
+    "used": "6002",
+    "free": "6951",
+    "shared": "729",
+    "buff_cache": "3981",
+    "available": "9875"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:30:26",
+  "memory": {
+    "total": "15877",
+    "used": "5947",
+    "free": "7006",
+    "shared": "709",
+    "buff_cache": "3962",
+    "available": "9930"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:31:26",
+  "memory": {
+    "total": "15877",
+    "used": "5927",
+    "free": "7026",
+    "shared": "696",
+    "buff_cache": "3949",
+    "available": "9950"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:32:26",
+  "memory": {
+    "total": "15877",
+    "used": "5941",
+    "free": "7012",
+    "shared": "704",
+    "buff_cache": "3957",
+    "available": "9936"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:33:26",
+  "memory": {
+    "total": "15877",
+    "used": "5983",
+    "free": "6970",
+    "shared": "711",
+    "buff_cache": "3964",
+    "available": "9894"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:34:27",
+  "memory": {
+    "total": "15877",
+    "used": "6011",
+    "free": "6941",
+    "shared": "721",
+    "buff_cache": "3975",
+    "available": "9866"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:35:27",
+  "memory": {
+    "total": "15877",
+    "used": "6013",
+    "free": "6939",
+    "shared": "734",
+    "buff_cache": "3988",
+    "available": "9864"
+  }
+},
+{
+  "timestamp": "2024-07-18 16:36:27",
+  "memory": {
+    "total": "15877",
+    "used": "6017",
+    "free": "6933",
+    "shared": "735",
+    "buff_cache": "3990",
+    "available": "9859"
+  }
+}
+]
