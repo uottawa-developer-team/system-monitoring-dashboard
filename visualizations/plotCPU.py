@@ -21,6 +21,14 @@ def grabData(startDate, endDate):
     # Return Extracted Data
     return croppedData
 
+def formatPlot(plot=plt, xlabel="", ylabel="", title="", legend_loc="upper left", grid=True, dformat='%H:%M:%S'):
+    plot.set_xlabel(xlabel)
+    plot.set_ylabel(ylabel)
+    plot.set_title(title)
+    plot.legend(loc=legend_loc)
+    plot.grid(grid)
+    plot.xaxis.set_major_formatter(mdates.DateFormatter(dformat))
+
 def plotData(data):
 
     # Extract the timestamps from the data
@@ -38,36 +46,45 @@ def plotData(data):
     siPct = [float(datalog['cpu']['si']) for datalog in data]
     stPct = [float(datalog['cpu']['st']) for datalog in data]
 
-    plt.figure(figsize=(10, 6))
-    plt.gcf().canvas.manager.set_window_title('System Monitoring Dashboard - CPU')
-    plt.plot(timestamps, TOTAL_CPU, label="CPU Capacity", color="red", linestyle="--")
-    plt.plot(timestamps, totalUsepct, label="Culmilative total in Use", color="blue")
-    plt.plot(timestamps, systemPct, label="System Processes", color="grey")
-    plt.plot(timestamps, userPct, label="User Processes", color="green")
-    plt.plot(timestamps, nicePct, label="Nice Processes", color="pink")
-    plt.plot(timestamps, idlePct, label="Idle", color="black")
-    plt.plot(timestamps, waitPct, label="Wait", color="orange")
-    plt.plot(timestamps, hiPct, label="Hi", color="purple")
-    plt.plot(timestamps, siPct, label="Si", color="brown")
-    plt.plot(timestamps, stPct, label="St", color="yellow")
+    # Create figure(s)
+    fig, subPlot = plt.subplot_mosaic([['subUses', 'subUses'],
+                                    ['totalUse', 'idle']], figsize=(13, 7))
     
+    # axs.gcf().canvas.manager.set_window_title('System Monitoring Dashboard - CPU')
+    plt.gcf().canvas.manager.set_window_title('System Monitoring Dashboard - CPU')
 
-    plt.xlabel("Time")
-    plt.ylabel("CPU Usage (%)")
-    plt.title("CPU Usage Over Time")
-    plt.legend(loc='upper left')
-    plt.grid(True)
+    # Graph of Subuses
+    subPlot['subUses'].plot(timestamps, TOTAL_CPU, label="CPU Capacity", color="red", linestyle="--")
+    subPlot['subUses'].plot(timestamps, systemPct, label="System Processes", color="grey")
+    subPlot['subUses'].plot(timestamps, userPct, label="User Processes", color="green")
+    subPlot['subUses'].plot(timestamps, nicePct, label="Nice Processes", color="pink")
+    subPlot['subUses'].plot(timestamps, waitPct, label="Wait", color="orange")
+    subPlot['subUses'].plot(timestamps, hiPct, label="Hi(Hardware Interrupts)", color="purple")
+    subPlot['subUses'].plot(timestamps, siPct, label="Si(Software Interrupts)", color="brown")
+    subPlot['subUses'].plot(timestamps, stPct, label="St(Steal Time)", color="yellow")
+    formatPlot(subPlot['subUses'], xlabel="Time", ylabel="CPU Usage (%)", title="CPU Usage - Processes")
+               
+    
+    # Graph of Total CPU Use
+    subPlot['totalUse'].plot(timestamps, TOTAL_CPU, label="CPU Capacity", color="red", linestyle="--")
+    subPlot['totalUse'].plot(timestamps, totalUsepct, label="Total pct of CPU in use", color="blue")
+    formatPlot(subPlot['totalUse'], xlabel="Time", ylabel="CPU Usage (%)", title="CPU Usage - Total")
 
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
-
-    plt.tight_layout()
+    
+    # Graph of Idle CPU
+    subPlot['idle'].plot(timestamps, TOTAL_CPU, label="CPU Capacity", color="red", linestyle="--")
+    subPlot['idle'].plot(timestamps, idlePct, label="Total pct of CPU idle", color="black")
+    formatPlot(subPlot['idle'], xlabel="Time", ylabel="Idle CPU (%)", title="CPU Usage -Idle")
+    
+    fig.subplots_adjust(hspace=0.3)
     plt.show()
 
 #runspace
 t1 = (datetime.now() - timedelta(minutes=30)).strftime("%Y-%m-%d %H:%M:%S")
 t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+# specific test case
+t1 = "2024-07-18 16:07:19"
+t2 = "2024-07-18 16:36:27"
+
 plotData(grabData(t1, t2))
-
-
-
