@@ -11,7 +11,7 @@ echo $timestamp >> "../data/cpu_usage.log"
 echo $cpu_data >> "../data/cpu_usage.log"
 
 # parse data for easier readability by create_json function
-cpu_data=$(echo "$cpu_data" | awk '{print $2,$4,$6,$8,$10,$12,$14,$16}')
+cpu_data=$(echo "$cpu_data" | sed 's/,/ /g' | awk '{print $2,$4,$6,$8,$10,$12,$14,$16}')
 
 # Function to create JSON data
 create_json(){
