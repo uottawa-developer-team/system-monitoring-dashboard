@@ -1,6 +1,6 @@
 import json
 from datetime import datetime, timedelta
-import plotly.graph_objects as go
+import plotly.graph_objects as go # type: ignore
 
 FILEPATH = "../../json_datalog/network_data.json"
 

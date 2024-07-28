@@ -1,6 +1,6 @@
 import json
 from datetime import datetime, timedelta
-from plotly.subplots import make_subplots
+from plotly.subplots import make_subplots # type: ignore
 
 FILEPATH = "../../json_datalog/disk_data.json"
 
