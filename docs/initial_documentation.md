@@ -1,4 +1,3 @@
-
 # Initial Documentation
 
 ## Project Overview
