@@ -21,7 +21,7 @@ def plotData(data):
     usedRam = [int(entry['memory']['used']) for entry in data]
 
     plt.figure(figsize=(10, 6))
-    plt.gcf().canvas.manager.set_window_title('System Monitoring Dashboard')
+    plt.gcf().canvas.manager.set_window_title('System Monitoring Dashboard - RAM')
     plt.plot(timestamps, totalRam, label="Total RAM", color="red", linestyle="--")
     plt.plot(timestamps, usedRam, label="Used RAM", color="yellow")
 
