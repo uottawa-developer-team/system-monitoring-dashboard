@@ -38,7 +38,11 @@ def plotData(data):
 
     # Find the name of disk(s)
     disks = [ data[0]['disk'][i]['device'] for i in range (len(data[0]['disk']))]
+
+    # Sort the disk(s) name(s)
     disks = sorted(disks)
+
+    # Use the length to determine the number of disks
     numOfDisks = len(disks)
 
     fig, axs = plt.subplots(numOfDisks,2, figsize=(13, 7))
@@ -55,7 +59,7 @@ def plotData(data):
                      for entry in data]
         
         # Plot the Pie Chart
-        axs[numOfDisks-i-1][1].pie([usedSpace[-1], availSpace[-1]], labels=["Used","Available"], autopct='%1.1f%%', shadow=True, startangle=180,
+        axs[numOfDisks-i-1][1].pie([usedSpace[-1], availSpace[-1]], labels=["Used","Available"], autopct='%1.1f%%', shadow=True, startangle=90,
                                                             colors=['r', 'g'], explode=[0.1,0.1])
         
 
@@ -73,11 +77,8 @@ def plotData(data):
 
 
 #runspace
-t1 = (datetime.now() - timedelta(days=3)).strftime("%Y-%m-%d %H:%M:%S")
+t1 = (datetime.now() - timedelta(days=20)).strftime("%Y-%m-%d %H:%M:%S")
 t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-# specific test case
-# t1 = "2024-07-18 16:07:19"
-# t2 = "2024-07-18 16:36:27"
 
 plotData(grabData(t1, t2))
