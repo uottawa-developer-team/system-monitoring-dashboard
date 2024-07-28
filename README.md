@@ -21,15 +21,17 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
 ```
 - system-monitoring-dashboard/
   - data/                  # Directory to store collected data
-    - json_datalogs        # Directiory to store collected data in JSON format
+  - json_datalogs/         # Directiory to store collected data in JSON format
   - scripts/               # Bash scripts for data collection
   - visualizations/        # Python scripts for data visualization
   - dashboard/             # Flask application for the dashboard
   - docs/                  # Directory for additional documentation
     - initial_documentaion.md
     - sprint_1_documentation.md
+    - sprint_2_documentation.md
   - README.md              # Project documentation
   - requirements.txt       # Required Python libraries
+  - LICENSE                # License 
 ```
 
 ## Getting Started
