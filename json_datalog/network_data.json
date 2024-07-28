@@ -1,34 +1,154 @@
 [
 {
-  "timestamp": "2024-07-17 19:29:39",
+  "timestamp": "2024-07-27 23:42:00",
   "network": {
     "primary_interface": "wlp3s0",
-    "rx_bytes": "4796179751",
-    "tx_bytes": "388990792"
+    "rx_bytes": "691998493",
+    "tx_bytes": "180483494"
   }
 },
 {
-  "timestamp": "2024-07-17 19:29:40",
+  "timestamp": "2024-07-27 23:42:01",
   "network": {
     "primary_interface": "wlp3s0",
-    "rx_bytes": "4796277422",
-    "tx_bytes": "389199075"
+    "rx_bytes": "691999108",
+    "tx_bytes": "180483692"
   }
 },
 {
-  "timestamp": "2024-07-17 19:29:41",
+  "timestamp": "2024-07-27 23:42:03",
   "network": {
     "primary_interface": "wlp3s0",
-    "rx_bytes": "4796332889",
-    "tx_bytes": "389295807"
+    "rx_bytes": "691999557",
+    "tx_bytes": "180483786"
   }
 },
 {
-  "timestamp": "2024-07-17 19:29:42",
+  "timestamp": "2024-07-27 23:42:06",
   "network": {
     "primary_interface": "wlp3s0",
-    "rx_bytes": "4796354865",
-    "tx_bytes": "389361105"
+    "rx_bytes": "691999863",
+    "tx_bytes": "180483786"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:08",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692000463",
+    "tx_bytes": "180483909"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:11",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692001180",
+    "tx_bytes": "180484339"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:13",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692001875",
+    "tx_bytes": "180484433"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:16",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692002875",
+    "tx_bytes": "180484738"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:19",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692009943",
+    "tx_bytes": "180489139"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:21",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692010727",
+    "tx_bytes": "180489337"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:25",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692011247",
+    "tx_bytes": "180489337"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:27",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692012135",
+    "tx_bytes": "180489767"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:42",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692046615",
+    "tx_bytes": "180516010"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:44",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692048256",
+    "tx_bytes": "180516104"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:42:47",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692055180",
+    "tx_bytes": "180520350"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:45:05",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692213381",
+    "tx_bytes": "180642586"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:53:02",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692914791",
+    "tx_bytes": "180986883"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:53:08",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692924503",
+    "tx_bytes": "180990939"
+  }
+},
+{
+  "timestamp": "2024-07-27 23:53:11",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "692933368",
+    "tx_bytes": "180995791"
   }
 }
 ]
