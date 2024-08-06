@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timedelta
 import plotly.graph_objects as go # type: ignore
 
-FILEPATH = "../../json_datalog/network_data.json"
+FILEPATH = "../json_datalog/network_data.json"
 
 
 def grabData(startDate, endDate):
@@ -46,7 +46,8 @@ def plotData(data):
             x=1
         ),
         template="plotly_dark",
-        barmode='group'  # Use 'group' or 'stack' to change bar chart style
+        barmode='group',
+        hovermode="x unified"  # Use 'group' or 'stack' to change bar chart style
     )
 
     fig.update_xaxes(tickformat="%H:%M:%S")
@@ -82,4 +83,6 @@ if __name__ == "__main__":
     # t1 = "2024-07-26 16:07:27"
     # t2 = "2024-07-26 16:38:00"
 
+    FILEPATH = "../../json_datalog/network_data.json"
+    
     plotData(grabData(t1, t2))
