@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timedelta
 from plotly.subplots import make_subplots # type: ignore
 
-FILEPATH = "../../json_datalog/disk_data.json"
+FILEPATH = "../json_datalog/disk_data.json"
 
 
 def grabData(startDate, endDate):
@@ -40,7 +40,8 @@ def plotData(data):
 
 
     # Create subplots with a mix of 'xy' and 'pie' types
-    fig = make_subplots(rows=numOfDisks, cols=2, specs=[[{"type": "xy"}, {"type": "pie"}] for _ in range(numOfDisks)])
+    fig = make_subplots(rows=numOfDisks, cols=2, specs=[[{"type": "xy"}, {"type": "pie"}] for _ in range(numOfDisks)],
+                        subplot_titles=[disks[i//2][-4:] if i%2 != 0 else "" for i in range(numOfDisks*2)])
 
 
     for i in range(numOfDisks):
@@ -71,6 +72,7 @@ def plotData(data):
             textinfo='label+value+percent',  # Display the percentage on the chart
             textposition='inside',  # Position the text inside the pie
             showlegend=False,  # Hide the legend
+            # hole=.1)
             pull=[0.1, 0.1])  # Explode the pie chart
         
         
@@ -87,7 +89,8 @@ def plotData(data):
             xanchor="right",
             x=1
         ),
-        template="plotly_dark"
+        template="plotly_dark",
+        hovermode="x unified"
     )
     
     fig.update_xaxes(tickformat="%H:%M:%S")
@@ -123,4 +126,6 @@ if __name__ == "__main__":
     # t1 = "2024-07-26 16:07:27"
     # t2 = "2024-07-26 16:38:00"
 
+    FILEPATH = "../../json_datalog/disk_data.json"
+    
     plotData(grabData(t1, t2))
