@@ -2,9 +2,8 @@ import json
 from datetime import datetime, timedelta
 from plotly.subplots import make_subplots # type: ignore
 
-FILEPATH = "../../json_datalog/cpu_usage.json"
+FILEPATH = "../json_datalog/cpu_usage.json"
 
-# Function to grab data
 def grabData(startDate, endDate):
 
     # Load the file as a list of dictionaries using the json module
@@ -20,6 +19,7 @@ def grabData(startDate, endDate):
      
     # Return Extracted Data
     return croppedData
+
 
 # Function to plot data
 def plotData(data):
@@ -93,7 +93,8 @@ def plotData(data):
             xanchor="right",
             x=1
         ),   
-        template="plotly_dark"   
+        template="plotly_dark",
+        hovermode="x unified"  
     )
     
     fig.update_xaxes(tickformat="%H:%M:%S")     # Format time
@@ -117,17 +118,18 @@ def plotData(data):
         return fig
 
 
-    
-
 
 if __name__ == "__main__":
     # runspace
     t1 = (datetime.now() - timedelta(hours=4)).strftime("%Y-%m-%d %H:%M:%S")
     t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+
     # specific test case
     # t1 = "2024-07-26 16:07:27"
     # t2 = "2024-07-26 16:38:00"
+
+    FILEPATH = "../../json_datalog/cpu_usage.json"
 
     plotData(grabData(t1, t2))
 
