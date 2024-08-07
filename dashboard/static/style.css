@@ -15,7 +15,7 @@ div, span, p, h1, h2, h3, h4, input, textarea, button, label {
 
 .plot {
     width: 80vw;
-    height: 100%;
+    /* height: 15%; */
     margin-bottom: 10px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
