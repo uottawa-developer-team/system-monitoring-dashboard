@@ -170,7 +170,9 @@ def plot(t1, t2):
             x=1
         ),   
         template="plotly_dark",
-        hovermode="x unified"
+        hovermode="x unified",
+        height=650,
+        autosize=True  # Makes the plot responsive
     )
     fig.update_xaxes(tickformat="%H:%M:%S")
 

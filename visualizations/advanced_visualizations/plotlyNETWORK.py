@@ -47,7 +47,9 @@ def plotData(data):
         ),
         template="plotly_dark",
         barmode='group',
-        hovermode="x unified"  # Use 'group' or 'stack' to change bar chart style
+        hovermode="x unified",
+        height=650,
+        autosize=True  # Makes the plot responsive
     )
 
     fig.update_xaxes(tickformat="%H:%M:%S")

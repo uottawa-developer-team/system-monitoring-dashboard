@@ -94,7 +94,10 @@ def plotData(data):
             x=1
         ),   
         template="plotly_dark",
-        hovermode="x unified"  
+        hovermode="x unified",
+        # margin=dict(l=5, r=5, t=5, b=5),
+        height=650,
+        autosize=True  # Makes the plot responsive
     )
     
     fig.update_xaxes(tickformat="%H:%M:%S")     # Format time

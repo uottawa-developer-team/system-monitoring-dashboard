@@ -49,7 +49,9 @@ def plotData(data):
             x=1
         ),
         template="plotly_dark",
-        hovermode="x unified"
+        hovermode="x unified",
+        height=650,
+        autosize=True  # Makes the plot responsive
     )
     for i in range(2):
         fig.update_xaxes(title_text="Time", row=i+1, col=1)
