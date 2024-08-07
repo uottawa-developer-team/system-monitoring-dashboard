@@ -123,10 +123,15 @@ if __name__ == "__main__":
     t1 = (datetime.now() - timedelta(days=4)).strftime("%Y-%m-%d %H:%M:%S")
     t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # specific test case
-    # t1 = "2024-07-26 16:07:27"
-    # t2 = "2024-07-26 16:38:00"
+    time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
+
+    t1c_m = "2024-07-30 19:37:20"
+    t2c_m = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
+
+    t1d_n = "2024-07-30 19:37:20"
+    t2d_n = (time + timedelta(minutes=90)).strftime("%Y-%m-%d %H:%M:%S")
+
 
     FILEPATH = "../../json_datalog/disk_data.json"
     
-    plotData(grabData(t1, t2))
+    plotData(grabData(t1d_n, t2d_n))
