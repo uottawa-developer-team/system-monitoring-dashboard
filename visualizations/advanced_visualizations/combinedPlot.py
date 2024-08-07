@@ -199,4 +199,12 @@ def plot(t1, t2):
 
 
 if __name__ == "__main__":
-    print("Please run me as a module")
+    time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
+
+    t1c_m = "2024-07-30 19:37:20"
+    t2c_m = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
+
+    t1d_n = "2024-07-30 19:37:20"
+    t2d_n = (time + timedelta(minutes=90)).strftime("%Y-%m-%d %H:%M:%S")
+
+    plot(t1c_m,t2d_n)
