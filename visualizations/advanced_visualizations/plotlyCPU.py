@@ -85,7 +85,7 @@ def plotData(data):
         title_font_size=30,     # Set font size
         title_x=0.5,
         title_xanchor="center",
-        title_y=0.95,
+        title_y=0.98,
         legend=dict(
             orientation="h",
             yanchor="bottom",
@@ -95,7 +95,7 @@ def plotData(data):
         ),   
         template="plotly_dark",
         hovermode="x unified",
-        height=650,
+        height=630,
         autosize=True  # Makes the plot responsive
     )
     

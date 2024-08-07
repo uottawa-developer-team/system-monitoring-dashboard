@@ -90,7 +90,7 @@ def plotData(data):
             x=1
         ),
         template="plotly_dark",
-        height=650,
+        height=630,
         autosize=True  # Makes the plot responsive
     )
     

@@ -50,7 +50,7 @@ def plotData(data):
         ),
         template="plotly_dark",
         hovermode="x unified",
-        height=650,
+        height=630,
         autosize=True  # Makes the plot responsive
     )
     for i in range(2):

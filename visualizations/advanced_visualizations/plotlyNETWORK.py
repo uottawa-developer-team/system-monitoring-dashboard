@@ -48,7 +48,7 @@ def plotData(data):
         template="plotly_dark",
         barmode='group',
         hovermode="x unified",
-        height=650,
+        height=630,
         autosize=True  # Makes the plot responsive
     )
 
