@@ -79,7 +79,7 @@ def plotData(data):
             fig.update_xaxes(title_text="Time", row=row, col=col)
     
 
-    # fig.update_traces()
+    # Update Layout
     fig.update_layout(
         title_text="System Monitoring Dashboard - CPU",     # Update Title
         title_font_size=30,     # Set font size
@@ -95,7 +95,6 @@ def plotData(data):
         ),   
         template="plotly_dark",
         hovermode="x unified",
-        # margin=dict(l=5, r=5, t=5, b=5),
         height=650,
         autosize=True  # Makes the plot responsive
     )
@@ -124,8 +123,14 @@ def plotData(data):
 
 if __name__ == "__main__":
     # runspace
-    t1 = (datetime.now() - timedelta(hours=4)).strftime("%Y-%m-%d %H:%M:%S")
-    t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
+
+    t1c_m = "2024-07-30 19:37:20"
+    t2c_m = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
+
+    t1d_n = "2024-07-30 19:37:20"
+    t2d_n = (time + timedelta(minutes=90)).strftime("%Y-%m-%d %H:%M:%S")
+
 
 
     # specific test case
@@ -134,7 +139,7 @@ if __name__ == "__main__":
 
     FILEPATH = "../../json_datalog/cpu_usage.json"
 
-    plotData(grabData(t1, t2))
+    plotData(grabData(t1c_m, t2c_m))
 
 
 
