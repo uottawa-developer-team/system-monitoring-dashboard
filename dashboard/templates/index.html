@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row" id="menu-bar">
+    <h1 class="header">Data Visualizations</h1>
+    <a href="#cpu-plot" class="scroll-link">cpu_plot</a>
+    <a href="#memory-plot" class="scroll-link">memory_plot</a>
+    <a href="#disk-plot" class="scroll-link">disk_plot</a>
+    <a href="#network-plot" class="scroll-link">network_plot</a>
+    <a href="#combined-plot" class="scroll-link">combined_plot</a>
+</div>
+<div class="intro">
+    <p>This page contains various data visualizations that can be used to explore the data.</p>
+</div>
+<div class="plots-container">
+    <div class="plot" id="cpu-plot">
+        <h2 class="intext">CPU Usage</h2>
+        <div>{{ cpu_plot | safe }}</div>
+    </div>
+    <p></p>
+    <div class="plot" id="memory-plot">
+        <h2 class="intext">Memory Usage</h2>
+        <div>{{ memory_plot | safe }}</div>
+    </div>
+    <p></p>
+    <div class="plot" id="network-plot">
+        <h2 class="intext">Network Usage</h2>
+        <div>{{ network_plot | safe }}</div>
+    </div>
+    <p></p>
+    <div class="plot" id="disk-plot">
+        <h2 class="intext">Disk Usage</h2>
+        <div>{{ disk_plot | safe }}</div>
+    </div>
+    <p></p>
+    <div class="plot" id="combined-plot">
+        <h2 class="intext">Combined Plot</h2>
+        <div>{{ combined_plot | safe }}</div>
+    </div>
+</div>
+
+{% endblock %}

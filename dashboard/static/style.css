@@ -1,0 +1,73 @@
+div, span, p, input, textarea, button, label {
+    font-size: 28px;
+    font-weight: 300;
+}
+div, span, p, h1, h2, h3, h4, input, textarea, button, label {
+    /* font-family: 'Open Sans', sans-serif; */
+    /* color: black; */
+    color: #222;
+}
+.intext{
+    text-align: center;
+    height: 5vh;
+    /* transform: translateY(-50%); */
+}
+
+.plot {
+    width: 80vw;
+    height: 100%;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #2a3e48;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden; /* prevent scrollbars */
+}
+
+
+.plots-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; makes the parent container take full height */
+}
+
+.intro {
+    height: 100vh;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 50px;
+}
+.row a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+.row a:hover {
+    background-color: #555;
+}
+
+.header {
+    font-size: 5vh;
+}
+
+
+#menu-bar {
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+#menu-bar.hidden {
+    transform: translateY(-100%);
+}
