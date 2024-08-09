@@ -86,10 +86,10 @@ def plotMem(t1, t2, file, figure, row=1, col=2):
     figure.update_yaxes(title_text="RAM Usage (MB)", row=row, col=col)
     figure.update_xaxes(title_text="Time", row=row, col=col)
 
-def plotDisk(t1, t2, file, figure, row=2, col=1):
+def plotDisk(t1_disk, t2, file, figure, row=2, col=1):
 
     # Grab Data
-    data = grabData(t1, t2, file)
+    data = grabData(t1_disk, t2, file)
 
     # Extract the timestamps from the data
     timestamps = [datetime.strptime(entry['timestamp'], '%Y-%m-%d %H:%M:%S') for entry in data]
@@ -144,14 +144,14 @@ def plotNet(t1, t2, file, figure, row=2, col=2):
 
 
     
-def plot(t1, t2):
+def plot(t1, t2, t1_disk):
 
     # Create a figure with 2 rows and 2 columns
     fig = make_subplots(rows=2, cols=2, specs=[[{"type": "xy"}, {"type": "xy"}], [{"type": "pie"}, {"type": "xy"}]]) # subplot_titles=("CPU", "RAM", "DISK", "NET")
     
     plotCpu(t1, t2, CPU_FILEPATH, fig, row=1, col=1)
     plotMem(t1, t2, MEM_FILEPATH, fig, row=1, col=2)
-    plotDisk(t1, t2, DISK_FILEPATH, fig, row=2, col=1)
+    plotDisk(t1_disk, t2, DISK_FILEPATH, fig, row=2, col=1)
     plotNet(t1, t2, NET_FILEPATH, fig, row=2, col=2)
 
 
@@ -207,4 +207,4 @@ if __name__ == "__main__":
     t1d_n = "2024-07-30 19:37:20"
     t2d_n = (time + timedelta(minutes=90)).strftime("%Y-%m-%d %H:%M:%S")
 
-    plot(t1c_m,t2d_n)
+    plot(t1c_m,t2d_n,t1c_m)
