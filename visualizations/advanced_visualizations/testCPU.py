@@ -95,29 +95,26 @@ def plotData(data):
         ),   
         template="plotly_dark",
         hovermode="x unified",
-        height=630,
+        height=800,
         autosize=True  # Makes the plot responsive
     )
 
 
-    fig.update_layout(
-        title="Interactive Time Range Selection",
-        xaxis=dict(
-            title="Time",
-            rangeselector=dict(
-                buttons=list([
-                    dict(count=1, label="1m", step="minute", stepmode="backward"),
-                    dict(count=5, label="5m", step="minute", stepmode="backward"),
-                    dict(count=15, label="15m", step="minute", stepmode="backward"),
-                    dict(step="all")
-                ])
-            ),
-            rangeslider=dict(
-                visible=True
-            ),
-            type="date"
-        )
-    )
+    for row in range(1, 3):
+        for col in range(1, 3):
+            fig.update_xaxes(
+                title="Time",
+                range=[min(timestamps), max(timestamps)],
+                fixedrange=True,
+                rangeslider=dict(
+                    visible=True,
+                    thickness=0.1  # This controls the height of the range slider
+                ),
+                type="date",
+                matches='x',
+                row=row,
+                col=col
+            )
 
 
 
