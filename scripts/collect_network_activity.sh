@@ -74,3 +74,7 @@ else
 fi
 
 echo "]" >> $file
+
+if [[ $(wc -l < "$file" | awk '{print $1}') -gt 10100 ]]; then
+	sed -i '2,9d' $file
+fi

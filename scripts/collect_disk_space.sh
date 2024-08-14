@@ -59,3 +59,10 @@ else
 fi
 
 echo "]" >> $file
+
+num=$(echo "$disk_data" | grep "^/dev/" | wc -l)
+endnum=$((6 + 7 * num))
+
+if [[ $(wc -l <"$file") -gt $(($((endnum - 1)) * 240)) ]]; then
+   sed -i "2,${endnum}d" $file
+fi

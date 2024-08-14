@@ -66,3 +66,7 @@ else
 fi
 
 echo "]" >> $file
+
+if [[ $(wc -l < "$file"| awk '{print $1}') -gt 15860 ]]; then
+	sed -i '2,12d' $file
+fi

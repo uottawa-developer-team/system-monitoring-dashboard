@@ -65,3 +65,8 @@ else
 fi
 
 echo "]" >> $file
+
+# CP
+if [[ $(wc -l < "$file" | awk '{print $1}') -gt 18740 ]]; then
+	sed -i '2,14d' $file
+fi
