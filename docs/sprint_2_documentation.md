@@ -1,7 +1,7 @@
 # Sprint 2 Progress Report
 
 ## Introduction
-**Overview of Sprint 1:**
+**Overview of Sprint 2:**
 - Sprint 2 began on July 15th and Concluded on July 21st. The focus of Sprint 2 was to finalize plans of storing the collected data in sprint 1 and to develop initial visualization scripts for the given data. These goals were acheived, The JSON storage format was decided on and four visualisation scripts were written in Python using the Matplotlib library.
 
 **Objectives and Goals:**
