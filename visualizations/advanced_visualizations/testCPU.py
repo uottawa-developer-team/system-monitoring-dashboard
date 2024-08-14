@@ -40,7 +40,7 @@ def plotData(data):
     stPct = [float(datalog['cpu']['st']) for datalog in data]
 
     # Make a matrix of 4 subplots
-    fig = make_subplots(rows=2, cols=2)
+    fig = make_subplots(rows=2, cols=2, vertical_spacing=0.3)
 
     
     # Subplot 1 (Total percentage):
@@ -95,7 +95,7 @@ def plotData(data):
         ),   
         template="plotly_dark",
         hovermode="x unified",
-        height=800,
+        height=630,
         autosize=True  # Makes the plot responsive
     )
 
@@ -105,22 +105,34 @@ def plotData(data):
             fig.update_xaxes(
                 title="Time",
                 range=[min(timestamps), max(timestamps)],
-                fixedrange=True,
                 rangeslider=dict(
                     visible=True,
                     thickness=0.1  # This controls the height of the range slider
                 ),
+                fixedrange=True,
                 type="date",
                 matches='x',
+                tickformat="%H:%M:%S",
                 row=row,
                 col=col
             )
 
 
-
-
-    
-    fig.update_xaxes(tickformat="%H:%M:%S")     # Format time
+    # make range slector buttons    
+    fig.update_xaxes(
+        rangeselector=dict(
+            buttons=list([
+                dict(count=1, label="1m", step="minute", stepmode="backward"),
+                dict(count=5, label="5m", step="minute", stepmode="backward"),
+                dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(label="All", step="all")
+            ]),
+            bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
+            font=dict(color="black")  # Change the text color of the range selector buttons
+        ),
+        row=1,
+        col=1
+    )     
 
     if __name__ == "__main__":
         
@@ -146,7 +158,8 @@ if __name__ == "__main__":
     # runspace
     time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
 
-    t1c_m = "2024-07-30 19:37:20"
+    t1c_m = "2024-08-13 15:51:19"
+    t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     t2c_m = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
 
     t1d_n = "2024-07-30 19:37:20"
@@ -160,7 +173,7 @@ if __name__ == "__main__":
 
     FILEPATH = "../../json_datalog/cpu_usage.json"
 
-    plotData(grabData(t1c_m, t2c_m))
+    plotData(grabData(t1c_m, t2))
 
 
 
