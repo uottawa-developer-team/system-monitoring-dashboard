@@ -9,8 +9,11 @@ if [[ ! -f "$SCRIPT_PATH" ]]; then
     exit 1
 fi
 
+# Make sure the script is executable
+chmod +x "$SCRIPT_PATH"
+
 # Define the cron job
-CRON_JOB="0 * * * * \"$SCRIPT_PATH\""
+CRON_JOB="0 * * * * $SCRIPT_PATH"
 
 # Check if the cron job already exists
 EXISTING_CRON=$(crontab -l 2>/dev/null | grep -F "$SCRIPT_PATH")
@@ -26,3 +29,6 @@ else
         echo "SYSTEM MONITORING DASHBOARD ERROR: Failed to add cron job."
     fi
 fi
+
+# Execute the script once in the background
+"$SCRIPT_PATH" &
