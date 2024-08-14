@@ -72,13 +72,6 @@ def plotData(data):
     # Make the a limit-trace for all subplots
     fig.add_scatter(x=timestamps, y=totalCpu, mode="lines", line=dict(color="Red", dash="dash"), name="CPU Capacity", row=[1,1,2,2], col=[1,2,1,2], showlegend=False)
 
-    # Update axis-labels for all subplots
-    for row in range(1, 3):
-        for col in range(1, 3):
-            fig.update_yaxes(title_text="CPU Usage (%)", row=row, col=col)
-            fig.update_xaxes(title_text="Time", row=row, col=col)
-    
-
     # Update Layout
     fig.update_layout(
         title_text="System Monitoring Dashboard - CPU",     # Update Title
@@ -98,6 +91,42 @@ def plotData(data):
         height=630,
         autosize=True  # Makes the plot responsive
     )
+
+
+    # Update axis-labels for all subplots
+    for row in range(1, 3):
+        for col in range(1, 3):
+            fig.update_yaxes(title_text="CPU Usage (%)", row=row, col=col)
+            fig.update_xaxes(
+                title="Time",
+                range=[min(timestamps), max(timestamps)],
+                fixedrange=True,
+                rangeslider=dict(
+                    visible=True,
+                    thickness=0.1
+                ),
+                matches='x',
+                type='date',
+                row=row,
+                col=col
+            )
+
+    # make range slector buttons    
+    fig.update_xaxes(
+        rangeselector=dict(
+            buttons=list([
+                dict(count=1, label="1m", step="minute", stepmode="backward"),
+                dict(count=5, label="5m", step="minute", stepmode="backward"),
+                dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(label="All", step="all")
+            ]),
+            bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
+            font=dict(color="black")  # Change the text color of the range selector buttons
+        ),
+        row=1,
+        col=1
+    )     
+    
     
     fig.update_xaxes(tickformat="%H:%M:%S")     # Format time
 
@@ -107,15 +136,6 @@ def plotData(data):
 
         fig.show(renderer="browser", config=config) # Overriding the default renderer
 
-        # from dash import Dash, dcc, html
-
-        # app = Dash()
-        # app.layout = html.Div([
-        #     dcc.Graph(figure=fig)
-        # ])
-
-        # app.run_server(debug=True, use_reloader=False)
-
     else:
         return fig
 
@@ -123,23 +143,9 @@ def plotData(data):
 
 if __name__ == "__main__":
     # runspace
-    time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
-
-    t1c_m = "2024-07-30 19:37:20"
-    t2c_m = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
-
-    t1d_n = "2024-07-30 19:37:20"
-    t2d_n = (time + timedelta(minutes=90)).strftime("%Y-%m-%d %H:%M:%S")
-
-
-
-    # specific test case
-    # t1 = "2024-07-26 16:07:27"
-    # t2 = "2024-07-26 16:38:00"
+    t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    t1 = (t2 - timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
 
     FILEPATH = "../../json_datalog/cpu_usage.json"
 
-    plotData(grabData(t1c_m, t2c_m))
-
-
-
+    plotData(grabData(t1,t2))

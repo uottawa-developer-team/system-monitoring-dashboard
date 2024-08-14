@@ -53,8 +53,37 @@ def plotData(data):
         height=630,
         autosize=True  # Makes the plot responsive
     )
+
     for i in range(2):
-        fig.update_xaxes(title_text="Time", row=i+1, col=1)
+        fig.update_xaxes(
+            title_text="Time",
+            range=[min(timestamps), max(timestamps)],
+            fixedrange=True,
+            rangeslider=dict(
+                visible=True,
+                thickness=0.1
+            ),
+            matches='x',
+            type='date',
+            row=i+1, 
+            col=1
+        )
+
+    # make range slector buttons    
+    fig.update_xaxes(
+        rangeselector=dict(
+            buttons=list([
+                dict(count=1, label="1m", step="minute", stepmode="backward"),
+                dict(count=5, label="5m", step="minute", stepmode="backward"),
+                dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(label="All", step="all")
+            ]),
+            bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
+            font=dict(color="black")  # Change the text color of the range selector buttons
+        ),
+        row=1,
+        col=1
+    )
 
     fig.update_xaxes(tickformat="%H:%M:%S")
 
@@ -64,33 +93,14 @@ def plotData(data):
 
         fig.show(renderer="browser", config=config) # Overriding the default renderer
 
-        # from dash import Dash, dcc, html
-
-        # app = Dash()
-        # app.layout = html.Div([
-        #     dcc.Graph(figure=fig)
-        # ])
-
-        # app.run_server(debug=True, use_reloader=False)
-
     else:
         return fig
 
 
 if __name__ == "__main__":
     # runspace
-    t1 = (datetime.now() - timedelta(hours=4)).strftime("%Y-%m-%d %H:%M:%S")
     t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
-    # Select time for date and time for cpu and memory usage plots
-    t1 = "2024-07-30 19:37:20"
-    t2 = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
-
-
-    # specific test case
-    # t1 = "2024-07-26 16:07:27"
-    # t2 = "2024-07-26 16:38:00"
+    t1 = (t2 - timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
 
     FILEPATH = "../../json_datalog/memory_usage.json"
     

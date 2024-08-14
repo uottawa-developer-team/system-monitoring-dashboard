@@ -52,7 +52,16 @@ def plotData(data):
         autosize=True  # Makes the plot responsive
     )
 
-    fig.update_xaxes(tickformat="%H:%M:%S")
+    fig.update_xaxes(
+        tickformat="%H:%M:%S",
+        range=[min(timestamps), max(timestamps)],
+        fixedrange=True,
+        rangeslider=dict(
+            visible=True,
+            thickness=0.1
+        ),
+        type='date',
+    )
 
     if __name__ == "__main__":
 
@@ -60,36 +69,16 @@ def plotData(data):
 
         fig.show(renderer="browser", config=config) # Overriding the default renderer
 
-        # from dash import Dash, dcc, html
-
-        # app = Dash()
-        # app.layout = html.Div([
-        #     dcc.Graph(figure=fig)
-        # ])
-
-        # app.run_server(debug=True, use_reloader=False)
-
     else:
         return fig
 
 
-    
-
 
 if __name__ == "__main__":
     # runspace
-    t1 = (datetime.now() - timedelta(hours=4)).strftime("%Y-%m-%d %H:%M:%S")
     t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
-
-    t1c_m = "2024-07-30 19:37:20"
-    t2c_m = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
-
-    t1d_n = "2024-07-30 19:37:20"
-    t2d_n = (time + timedelta(minutes=90)).strftime("%Y-%m-%d %H:%M:%S")
-
+    t1 = (t2 - timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
 
     FILEPATH = "../../json_datalog/network_data.json"
     
-    plotData(grabData(t1d_n, t2d_n))
+    plotData(grabData(t1, t2))
