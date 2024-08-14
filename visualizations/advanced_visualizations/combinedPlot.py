@@ -53,6 +53,7 @@ def plotCpu(t1, t2, file, figure, row=1, col=1):
             visible=True,
             thickness=0.1
         ),
+        matches='x',
         type='date',
         row=row, 
         col=col
@@ -104,6 +105,7 @@ def plotMem(t1, t2, file, figure, row=1, col=2):
             visible=True,
             thickness=0.1
         ),
+        matches='x',
         row=row, 
         col=col
         )
@@ -142,7 +144,8 @@ def plotDisk(t1_disk, t2, file, figure, row=2, col=1):
         showlegend=False,  # Hide the legend
         # pull=[0.1, 0.1],  # Explode the pie chart
         # insidetextorientation='radial',
-        hole=.2
+        domain=dict(x=[0, 0.8], y=[0.1, 0.9]),
+        hole=.1
         )
     
 def plotNet(t1, t2, file, figure, row=2, col=2):
@@ -178,7 +181,7 @@ def plotNet(t1, t2, file, figure, row=2, col=2):
 def plot(t1, t2, t1_disk):
 
     # Create a figure with 2 rows and 2 columns
-    fig = make_subplots(rows=2, cols=2, specs=[[{"type": "xy"}, {"type": "xy"}], [{"type": "pie"}, {"type": "xy"}]]) # subplot_titles=("CPU", "RAM", "DISK", "NET")
+    fig = make_subplots(rows=2, cols=2, specs=[[{"type": "xy"}, {"type": "xy"}], [{"type": "pie"}, {"type": "xy"}]], vertical_spacing=0.3) # subplot_titles=("CPU", "RAM", "DISK", "NET")
     
     plotCpu(t1, t2, CPU_FILEPATH, fig, row=1, col=1)
     plotMem(t1, t2, MEM_FILEPATH, fig, row=1, col=2)
@@ -202,25 +205,31 @@ def plot(t1, t2, t1_disk):
         ),   
         template="plotly_dark",
         hovermode="x unified",
+        plot_bgcolor='rgba(20, 20, 20, 0.5)',
         height=650,
         autosize=True  # Makes the plot responsive
     )
-    fig.update_xaxes(tickformat="%H:%M:%S")
+    fig.update_xaxes(
+        tickformat="%H:%M:%S",
+        rangeselector=dict(
+            buttons=list([
+                dict(count=1, label="1m", step="minute", stepmode="backward"),
+                dict(count=5, label="5m", step="minute", stepmode="backward"),
+                dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(label="All", step="all")
+            ]),
+            bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
+            font=dict(color="black"),   # Change the text color of the range selector buttons
+        ),
+        row=1,
+        col=1
+    )
 
     if __name__ == "__main__":
         
         config = {'displaylogo': False} # Config information
 
         fig.show(renderer="browser", config=config) # Overriding the default renderer
-
-        # from dash import Dash, dcc, html
-
-        # app = Dash()
-        # app.layout = html.Div([
-        #     dcc.Graph(figure=fig)
-        # ])
-
-        # app.run_server(debug=True, use_reloader=False)
 
     else:
         return fig
