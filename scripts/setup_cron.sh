@@ -1,12 +1,28 @@
 #!/bin/bash
 
-SCRIPT_PATH="./populate_variable_data.sh"
-chmod +x "$SCRIPT_PATH" #ensure the script is executable
+# Get the absolute path of the populate_variable_data.sh script
+SCRIPT_PATH=$(realpath "$(dirname "$0")/populate_variable_data.sh")
 
-#check if cron job already exists
-if crontab -l 2>/dev/null | grep -F "$CRON_JOB"; then
-    echo "SYSTEM MONITORING DASHBOARD ERROR: Cron job already exists" #dont make a new one
+# Check if the script file exists
+if [[ ! -f "$SCRIPT_PATH" ]]; then
+    echo "SYSTEM MONITORING DASHBOARD ERROR: Script $SCRIPT_PATH does not exist."
+    exit 1
+fi
+
+# Define the cron job
+CRON_JOB="0 * * * * \"$SCRIPT_PATH\""
+
+# Check if the cron job already exists
+EXISTING_CRON=$(crontab -l 2>/dev/null | grep -F "$SCRIPT_PATH")
+
+if [[ -n "$EXISTING_CRON" ]]; then
+    echo "SYSTEM MONITORING DASHBOARD: Cron job already exists."
 else
-    #append the cron job if it doesn't exist
+    # Append the cron job if it doesn't exist
     (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
+    if [[ $? -eq 0 ]]; then
+        echo "SYSTEM MONITORING DASHBOARD: Cron job added successfully."
+    else
+        echo "SYSTEM MONITORING DASHBOARD ERROR: Failed to add cron job."
+    fi
 fi

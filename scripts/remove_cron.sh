@@ -1,6 +1,13 @@
 #!/bin/bash
 
-SCRIPT_PATH="./populate_variable_data.sh"
+# Ensure that the script path is absolute
+SCRIPT_PATH="$(realpath ./populate_variable_data.sh)"
 CRON_JOB="0 * * * * $SCRIPT_PATH"
 
-crontab -l 2>/dev/null | grep -v -F "$CRON_JOB" | crontab -
+# Remove the cron job if it exists
+if crontab -l 2>/dev/null | grep -F "$CRON_JOB" >/dev/null; then
+    crontab -l 2>/dev/null | grep -v -F "$CRON_JOB" | crontab -
+    echo "SYSTEM MONITORING DASHBOARD: Cron job removed successfully."
+else
+    echo "SYSTEM MONITORING DASHBOARD: No matching cron job found."
+fi
