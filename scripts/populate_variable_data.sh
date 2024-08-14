@@ -7,7 +7,9 @@ if [ $(echo "$process_ids" | wc -l) -gt 2 ]; then # checks if the process_ids ar
   kill -9 $oldest_process_id &> /dev/null
 fi
 
-./collect_disk_space.sh
+cd "$(dirname "$0")" # Navigate to the current directory
+
+./collect_disk_space.sh &
 for i in {1..60}; do
   ./collect_cpu_usage.sh &
   ./collect_memory_usage.sh &
