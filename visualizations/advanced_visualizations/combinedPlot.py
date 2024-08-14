@@ -45,7 +45,18 @@ def plotCpu(t1, t2, file, figure, row=1, col=1):
 
 
     figure.update_yaxes(title_text="CPU Usage (%)", row=row, col=col)
-    figure.update_xaxes(title_text="Time", row=row, col=col)
+    figure.update_xaxes(
+        title_text="Time",
+        range=[min(timestamps), max(timestamps)],
+        fixedrange=True,
+        rangeslider=dict(
+            visible=True,
+            thickness=0.1
+        ),
+        type='date',
+        row=row, 
+        col=col
+    )
 
 
 def plotMem(t1, t2, file, figure, row=1, col=2):
@@ -84,7 +95,18 @@ def plotMem(t1, t2, file, figure, row=1, col=2):
     )
 
     figure.update_yaxes(title_text="RAM Usage (MB)", row=row, col=col)
-    figure.update_xaxes(title_text="Time", row=row, col=col)
+    figure.update_xaxes(
+        title_text="Time", 
+        type="date",
+        range=[min(timestamps), max(timestamps)],
+        fixedrange=True,
+        rangeslider=dict(
+            visible=True,
+            thickness=0.1
+        ),
+        row=row, 
+        col=col
+        )
 
 def plotDisk(t1_disk, t2, file, figure, row=2, col=1):
 
@@ -140,7 +162,16 @@ def plotNet(t1, t2, file, figure, row=2, col=2):
 
 
     figure.update_yaxes(title_text="Network Usage (MB)", row=row, col=col)
-    figure.update_xaxes(title_text="Time", row=row, col=col)
+    figure.update_xaxes(
+        title_text="Time", 
+        range=[min(timestamps), max(timestamps)],
+        fixedrange=True,
+        rangeslider=dict(
+            visible=True,
+            thickness=0.1
+        ),
+        row=row, 
+        col=col)
 
 
     
@@ -199,12 +230,9 @@ def plot(t1, t2, t1_disk):
 
 
 if __name__ == "__main__":
-    time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
+    # runspace
+    t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    t1_cmn = (t2 - timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
+    t1_d = (t2 - timedelta(days=5)).strftime("%Y-%m-%d %H:%M:%S")
 
-    t1c_m = "2024-07-30 19:37:20"
-    t2c_m = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
-
-    t1d_n = "2024-07-30 19:37:20"
-    t2d_n = (time + timedelta(minutes=90)).strftime("%Y-%m-%d %H:%M:%S")
-
-    plot(t1c_m,t2d_n,t1c_m)
+    plot(t1_cmn,t2,t1_d)
