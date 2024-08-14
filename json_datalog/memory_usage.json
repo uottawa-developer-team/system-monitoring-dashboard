@@ -1703,5 +1703,27 @@
     "buff_cache": "4978",
     "available": "10788"
   }
+},
+{
+  "timestamp": "2024-08-14 11:35:01",
+  "memory": {
+    "total": "15877",
+    "used": "5121",
+    "free": "6525",
+    "shared": "457",
+    "buff_cache": "5017",
+    "available": "10756"
+  }
+},
+{
+  "timestamp": "2024-08-14 11:36:01",
+  "memory": {
+    "total": "15877",
+    "used": "5115",
+    "free": "6531",
+    "shared": "429",
+    "buff_cache": "4989",
+    "available": "10762"
+  }
 }
 ]

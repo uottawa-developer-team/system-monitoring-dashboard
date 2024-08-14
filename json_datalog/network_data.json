@@ -1238,5 +1238,21 @@
     "rx_bytes": "146898416",
     "tx_bytes": "26294019"
   }
+},
+{
+  "timestamp": "2024-08-14 11:35:01",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "146982360",
+    "tx_bytes": "26416382"
+  }
+},
+{
+  "timestamp": "2024-08-14 11:36:01",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "147024095",
+    "tx_bytes": "26460678"
+  }
 }
 ]
