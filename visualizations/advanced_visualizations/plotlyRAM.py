@@ -22,7 +22,7 @@ def plotData(data):
     freeRam = [int(entry['memory']['available']) for entry in data]
 
     # Make a matrix of 4 subplots
-    fig = make_subplots(rows=2, cols=1)
+    fig = make_subplots(rows=2, cols=1, vertical_spacing=0.3)
     
     # Subplot 1 (Used RAM):
     fig.add_scatter(x=timestamps, y=usedRam, mode="lines", line=dict(color="yellow"), marker=dict(size=5), name="Used RAM", row=1, col=1)
@@ -50,6 +50,7 @@ def plotData(data):
         ),
         template="plotly_dark",
         hovermode="x unified",
+        plot_bgcolor='rgba(20, 20, 20, 0.5)',
         height=630,
         autosize=True  # Makes the plot responsive
     )

@@ -40,7 +40,7 @@ def plotData(data):
     stPct = [float(datalog['cpu']['st']) for datalog in data]
 
     # Make a matrix of 4 subplots
-    fig = make_subplots(rows=2, cols=2)
+    fig = make_subplots(rows=2, cols=2, vertical_spacing=0.3)
 
     
     # Subplot 1 (Total percentage):
@@ -88,6 +88,7 @@ def plotData(data):
         ),   
         template="plotly_dark",
         hovermode="x unified",
+        plot_bgcolor='rgba(20, 20, 20, 0.5)',
         height=630,
         autosize=True  # Makes the plot responsive
     )
@@ -111,7 +112,7 @@ def plotData(data):
                 col=col
             )
 
-    # make range slector buttons    
+    # make range selector buttons    
     fig.update_xaxes(
         rangeselector=dict(
             buttons=list([
@@ -121,7 +122,8 @@ def plotData(data):
                 dict(label="All", step="all")
             ]),
             bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
-            font=dict(color="black")  # Change the text color of the range selector buttons
+            font=dict(color="black"),   # Change the text color of the range selector buttons
+            x=-0.01   # positioning of the range selector buttons
         ),
         row=1,
         col=1
