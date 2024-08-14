@@ -48,6 +48,7 @@ def plotData(data):
         template="plotly_dark",
         barmode='group',
         hovermode="x unified",
+        plot_bgcolor='rgba(20, 20, 20, 0.5)',
         height=630,
         autosize=True  # Makes the plot responsive
     )
@@ -61,6 +62,15 @@ def plotData(data):
             thickness=0.1
         ),
         type='date',
+        rangeselector=dict(
+            buttons=list([
+                dict(count=5, label="5m", step="minute", stepmode="backward"),
+                dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(label="All", step="all")
+            ]),
+            bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
+            font=dict(color="black"),   # Change the text color of the range selector buttons
+        ),
     )
 
     if __name__ == "__main__":

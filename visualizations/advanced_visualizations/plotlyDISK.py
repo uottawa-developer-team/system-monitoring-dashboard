@@ -41,7 +41,7 @@ def plotData(data):
 
     # Create subplots with a mix of 'xy' and 'pie' types
     fig = make_subplots(rows=numOfDisks, cols=2, specs=[[{"type": "xy"}, {"type": "pie"}] for _ in range(numOfDisks)],
-                        subplot_titles=[disks[i//2][-4:] if i%2 != 0 else "" for i in range(numOfDisks*2)], vertical_spacing=0.1)
+                        subplot_titles=[disks[i//2][-4:] if i%2 != 0 else "" for i in range(numOfDisks*2)], vertical_spacing=0.3)
 
 
     for i in range(numOfDisks):
@@ -62,13 +62,15 @@ def plotData(data):
         # Update y-axis label
         fig.update_yaxes(title_text="Disk Space for " + disks[i][-4:] + " (GB)" , row=i+1, col=1)
         fig.update_xaxes(
-            title_text="Time", 
+            title_text="Time",
+            tickformat="%H:%M:%S",
             range=[min(timestamps), max(timestamps)],
             fixedrange=True,
             rangeslider=dict(
                 visible=True,
                 thickness=0.1
             ),
+            matches="x",
             type='date',
             row=i+1, 
             col=1
@@ -83,8 +85,10 @@ def plotData(data):
             textinfo='label+value+percent',  # Display the percentage on the chart
             textposition='inside',  # Position the text inside the pie
             showlegend=False,  # Hide the legend
-            # hole=.1)
-            pull=[0.1, 0.1])  # Explode the pie chart
+            hole=.1,
+            # pull=[0.1, 0.1],  # Explode the pie chart
+            domain=dict(x=[0, 1], y=[0, 1])   # Adjust the domain to make the pie chart bigger
+        )  
         
         
 
@@ -93,19 +97,38 @@ def plotData(data):
         title_text="System Monitoring Dashboard - Disk Usage",
         title_font_size=30,
         title_x=0.5,
+        title_y=0.98,
+        title_xanchor="center",
         legend=dict(
             orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="right",
-            x=1
+            yanchor="top",
+            y=1.15,
+            xanchor="left",
+            x=0.15
         ),
         template="plotly_dark",
         height=630,
-        autosize=True  # Makes the plot responsive
+        hovermode="x unified",
+        autosize=True,
+        plot_bgcolor='rgba(20, 20, 20, 0.5)',  # Set the plot background color to a semi-transparent white
     )
     
-    fig.update_xaxes(tickformat="%H:%M:%S")
+    fig.update_xaxes(
+        fixedrange=True,
+        rangeselector=dict(
+            buttons=list([
+                dict(count=60, label="1hr", step="minute", stepmode="backward"),
+                dict(count=4, label="4hr", step="hour", stepmode="backward"),
+                dict(label="All", step="all")
+            ]),
+            bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
+            font=dict(color="black"),   # Change the text color of the range selector buttons
+            y=1.05
+        ),
+        type="date",
+        row=1,
+        col=1,
+    )
 
     if __name__ == "__main__":
 
