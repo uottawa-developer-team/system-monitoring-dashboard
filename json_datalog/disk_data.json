@@ -1,0 +1,59 @@
+[
+{
+  "timestamp": "2024-08-14 09:00:01",
+  "disk": [
+    {
+      "device": "/dev/sdb1",
+      "size": "915G",
+      "used": "97G",
+      "avail": "773G",
+      "use_pcent": "12%"
+    },
+    {
+      "device": "/dev/sdb2",
+      "size": "1.1G",
+      "used": "6.2M",
+      "avail": "1.1G",
+      "use_pcent": "1%"
+    }
+  ]
+},
+{
+  "timestamp": "2024-08-14 10:00:01",
+  "disk": [
+    {
+      "device": "/dev/sdb1",
+      "size": "915G",
+      "used": "96G",
+      "avail": "773G",
+      "use_pcent": "12%"
+    },
+    {
+      "device": "/dev/sdb2",
+      "size": "1.1G",
+      "used": "6.2M",
+      "avail": "1.1G",
+      "use_pcent": "1%"
+    }
+  ]
+},
+{
+  "timestamp": "2024-08-14 11:00:01",
+  "disk": [
+    {
+      "device": "/dev/sdb1",
+      "size": "915G",
+      "used": "96G",
+      "avail": "773G",
+      "use_pcent": "12%"
+    },
+    {
+      "device": "/dev/sdb2",
+      "size": "1.1G",
+      "used": "6.2M",
+      "avail": "1.1G",
+      "use_pcent": "1%"
+    }
+  ]
+}
+]
