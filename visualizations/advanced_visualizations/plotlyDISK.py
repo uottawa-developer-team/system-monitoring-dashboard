@@ -41,7 +41,7 @@ def plotData(data):
 
     # Create subplots with a mix of 'xy' and 'pie' types
     fig = make_subplots(rows=numOfDisks, cols=2, specs=[[{"type": "xy"}, {"type": "pie"}] for _ in range(numOfDisks)],
-                        subplot_titles=[disks[i//2][-4:] if i%2 != 0 else "" for i in range(numOfDisks*2)])
+                        subplot_titles=[disks[i//2][-4:] if i%2 != 0 else "" for i in range(numOfDisks*2)], vertical_spacing=0.1)
 
 
     for i in range(numOfDisks):
@@ -61,7 +61,18 @@ def plotData(data):
 
         # Update y-axis label
         fig.update_yaxes(title_text="Disk Space for " + disks[i][-4:] + " (GB)" , row=i+1, col=1)
-        fig.update_xaxes(title_text="Time", row=i+1, col=1)
+        fig.update_xaxes(
+            title_text="Time", 
+            range=[min(timestamps), max(timestamps)],
+            fixedrange=True,
+            rangeslider=dict(
+                visible=True,
+                thickness=0.1
+            ),
+            type='date',
+            row=i+1, 
+            col=1
+        )
 
         
         fig.add_pie(labels=['Used Space (GB)', 'Available Space (GB)'], 
@@ -102,15 +113,6 @@ def plotData(data):
 
         fig.show(renderer="browser", config=config) # Overriding the default renderer
 
-        # from dash import Dash, dcc, html
-
-        # app = Dash()
-        # app.layout = html.Div([
-        #     dcc.Graph(figure=fig)
-        # ])
-
-        # app.run_server(debug=True, use_reloader=False)
-
     else:
         return fig
 
@@ -120,18 +122,9 @@ def plotData(data):
 
 if __name__ == "__main__":
     # runspace
-    t1 = (datetime.now() - timedelta(days=4)).strftime("%Y-%m-%d %H:%M:%S")
     t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    time = datetime.strptime("2024-07-30 19:37:20", "%Y-%m-%d %H:%M:%S")
-
-    t1c_m = "2024-07-30 19:37:20"
-    t2c_m = (time + timedelta(minutes=60)).strftime("%Y-%m-%d %H:%M:%S")
-
-    t1d_n = "2024-07-30 19:37:20"
-    t2d_n = (time + timedelta(minutes=90)).strftime("%Y-%m-%d %H:%M:%S")
-
+    t1 = (t2 - timedelta(days=15)).strftime("%Y-%m-%d %H:%M:%S")
 
     FILEPATH = "../../json_datalog/disk_data.json"
     
-    plotData(grabData(t1d_n, t2d_n))
+    plotData(grabData(t1, t2))
