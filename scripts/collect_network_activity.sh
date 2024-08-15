@@ -19,6 +19,9 @@ if [[ -n $primary_interface ]]; then #if not null
 
 else #if null
 	network_stats="ERROR: No primary interface detected"
+	primary_interface="No Primary interface detected"
+	rx_bytes=0
+	tx_bytes=0
 fi
 
 #combine interfaces & stats into clean data string
