@@ -81,15 +81,15 @@ def plotData(data):
         title_y=0.98,
         legend=dict(
             orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="right",
-            x=1
-        ),   
+            yanchor="top",
+            y=1.15,
+            xanchor="left",
+            x=0.15
+        ),  
         template="plotly_dark",
         hovermode="x unified",
         plot_bgcolor='rgba(20, 20, 20, 0.5)',
-        height=630,
+        height=700,
         autosize=True  # Makes the plot responsive
     )
 
@@ -123,7 +123,8 @@ def plotData(data):
             ]),
             bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
             font=dict(color="black"),   # Change the text color of the range selector buttons
-            x=-0.01   # positioning of the range selector buttons
+            # x=-0.01   # positioning of the range selector buttons
+            y=1.05
         ),
         row=1,
         col=1
