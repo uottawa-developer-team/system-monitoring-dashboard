@@ -1,46 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row" id="menu-bar">
-    <h1 class="header">Data Visualizations</h1>
-    <a href="#cpu-plot" class="scroll-link">cpu_plot</a>
-    <a href="#memory-plot" class="scroll-link">memory_plot</a>
-    <a href="#disk-plot" class="scroll-link">disk_plot</a>
-    <a href="#network-plot" class="scroll-link">network_plot</a>
-    <a href="#combined-plot" class="scroll-link">combined_plot</a>
+
+
+
+<div class="firstpage">
+    <div class="navbar" id="menu-bar">
+        <h1 class="header">Data Visualizations</h1>
+        <a href="#cpu-plot" class="scroll-link">CPU Usage</a>
+        <a href="#memory-plot" class="scroll-link">RAM Usage</a>
+        <a href="#disk-plot" class="scroll-link">DISK Usage</a>
+        <a href="#network-plot" class="scroll-link">Network Usage</a>
+        <a href="#combined-plot" class="scroll-link">Overview</a>
+    </div>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to the <br> System Monitoring Dashboard</h1>
+        <p>
+            This dashboard provides real-time insights into your system's performance metrics, including CPU usage, memory consumption, disk space, and network activity. Unlike Windows, which comes with built-in tools for system monitoring, UNIX systems often lack such comprehensive visualization tools. Our goal is to fill that gap by offering an intuitive and interactive interface for UNIX users, enabling them to monitor and analyze their system's health with ease.
+        </p>
+        <p>
+            By leveraging the power of shell scripting and data visualization libraries, this dashboard collects and processes system data at regular intervals. The data is then transformed into visually appealing plots that help you quickly understand the status and trends of your system's resources. Navigate through the plots using the links above to explore detailed visualizations and gain a deeper understanding of your system's health.
+        </p>
+        <p>
+            Whether you are a system administrator, developer, or power user, this tool is designed to provide the insights you need to ensure your system runs smoothly and efficiently.
+        </p>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 System Monitoring Dashboard. All rights reserved.</p>
+    </div>
 </div>
-<div class="intro">
-    <p>This page contains various data visualizations that can be used to explore the data.</p>
-</div>
+
+
+
 <div class="plots-container">
-    <div class="plot" id="cpu-plot">
-        <h2 class="intext">CPU Usage</h2>
+    <p id="cpu-plot"></p>
+    <div class="plot">
         <div>{{ cpu_plot | safe }}</div>
     </div>
-    <p></p>
-    <div class="plot" id="memory-plot">
-        <h2 class="intext">Memory Usage</h2>
+    <p id="memory-plot"></p>
+    <div class="plot" >
         <div>{{ memory_plot | safe }}</div>
     </div>
-    <p></p>
-    <div class="plot" id="network-plot">
-        <h2 class="intext">Network Usage</h2>
+    <p id="network-plot"></p>
+    <div class="plot" >
         <div>{{ network_plot | safe }}</div>
     </div>
-    <p></p>
-    <div class="plot" id="disk-plot">
-        <h2 class="intext">Disk Usage</h2>
+    <p id="disk-plot"></p>
+    <div class="plot" >
         <div>{{ disk_plot | safe }}</div>
     </div>
     <p></p>
-    <div class="plot" id="combined-plot">
-        <h2 class="intext">Combined Plot</h2>
+    <p id="combined-plot"></p>
+    <div class="plot" >
         <div>{{ combined_plot | safe }}</div>
     </div>
-    <p></p>
-    <a class="scroll-top" id="btnScrollTop">
-        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-    </a>
 </div>
+<a class="scroll-top" id="btnScrollTop">
+    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+</a>
 
 {% endblock %}
