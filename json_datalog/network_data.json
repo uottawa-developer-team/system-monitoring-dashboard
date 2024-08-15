@@ -1,37 +1,5 @@
 [
 {
-  "timestamp": "2024-08-14 09:14:01",
-  "network": {
-    "primary_interface": "wlp3s0",
-    "rx_bytes": "88635444",
-    "tx_bytes": "8109777"
-  }
-},
-{
-  "timestamp": "2024-08-14 09:15:01",
-  "network": {
-    "primary_interface": "wlp3s0",
-    "rx_bytes": "88707583",
-    "tx_bytes": "8182018"
-  }
-},
-{
-  "timestamp": "2024-08-14 09:16:01",
-  "network": {
-    "primary_interface": "wlp3s0",
-    "rx_bytes": "88800878",
-    "tx_bytes": "8422421"
-  }
-},
-{
-  "timestamp": "2024-08-14 09:17:01",
-  "network": {
-    "primary_interface": "wlp3s0",
-    "rx_bytes": "90143445",
-    "tx_bytes": "9024187"
-  }
-},
-{
   "timestamp": "2024-08-14 09:18:01",
   "network": {
     "primary_interface": "wlp3s0",
@@ -10093,6 +10061,38 @@
     "primary_interface": "wlp3s0",
     "rx_bytes": "1285483854",
     "tx_bytes": "1413897613"
+  }
+},
+{
+  "timestamp": "2024-08-15 16:04:01",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "1285788208",
+    "tx_bytes": "1417241313"
+  }
+},
+{
+  "timestamp": "2024-08-15 16:05:01",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "1286112006",
+    "tx_bytes": "1419747378"
+  }
+},
+{
+  "timestamp": "2024-08-15 16:06:01",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "1286431300",
+    "tx_bytes": "1422163295"
+  }
+},
+{
+  "timestamp": "2024-08-15 16:07:01",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "1286690664",
+    "tx_bytes": "1424870444"
   }
 }
 ]

@@ -14034,5 +14034,49 @@
     "buff_cache": "7110",
     "available": "8245"
   }
+},
+{
+  "timestamp": "2024-08-15 16:04:01",
+  "memory": {
+    "total": "15877",
+    "used": "7714",
+    "free": "2601",
+    "shared": "1135",
+    "buff_cache": "7153",
+    "available": "8163"
+  }
+},
+{
+  "timestamp": "2024-08-15 16:05:01",
+  "memory": {
+    "total": "15877",
+    "used": "7652",
+    "free": "2659",
+    "shared": "1098",
+    "buff_cache": "7121",
+    "available": "8225"
+  }
+},
+{
+  "timestamp": "2024-08-15 16:06:01",
+  "memory": {
+    "total": "15877",
+    "used": "8031",
+    "free": "2258",
+    "shared": "1113",
+    "buff_cache": "7158",
+    "available": "7846"
+  }
+},
+{
+  "timestamp": "2024-08-15 16:07:01",
+  "memory": {
+    "total": "15877",
+    "used": "7961",
+    "free": "2305",
+    "shared": "1096",
+    "buff_cache": "7163",
+    "available": "7916"
+  }
 }
 ]
