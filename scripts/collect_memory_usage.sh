@@ -16,8 +16,12 @@ clean_data=$(printf "Total: %sMB Used: %sMB" "$total_memory" "$used_memory")
 echo "$timestamp" >> ../data/memory_usage.log
 echo "$clean_data" >> ../data/memory_usage.log
 
-# parse data for easier readability by create_json function
-memory_data=$(echo "$memory_data" | awk '{print $2,$3,$4,$5,$6,$7}')
+if [[ ! -n $memory_data ]]; then #if null
+	memory_data="Mem    0   0   0   0   0   0"
+else #if not null
+	# parse data for easier readability by create_json function
+    memory_data=$(echo "$memory_data" | awk '{print $2,$3,$4,$5,$6,$7}')
+fi
 
 #create a json representation of the data
 create_json(){

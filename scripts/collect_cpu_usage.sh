@@ -10,8 +10,12 @@ cpu_data=$(top -b -n 1 | head -n -5 | grep "Cpu")
 echo $timestamp >> "../data/cpu_usage.log"
 echo $cpu_data >> "../data/cpu_usage.log"
 
-# parse data for easier readability by create_json function
-cpu_data=$(echo "$cpu_data" | sed 's/,/ /g' | awk '{print $2,$4,$6,$8,$10,$12,$14,$16}')
+if [[ ! -n $cpu_data ]]; then #if null
+	cpu_data="%Cpu(s): 0.0 us, 0.0 sy, 0.0 ni, 0.0 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st"
+else #if not null
+	# parse data for easier readability by create_json function
+	cpu_data=$(echo "$cpu_data" | sed 's/,/ /g' | awk '{print $2,$4,$6,$8,$10,$12,$14,$16}')
+fi
 
 # Function to create JSON data
 create_json(){
