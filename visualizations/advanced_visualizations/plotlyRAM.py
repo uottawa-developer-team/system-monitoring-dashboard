@@ -37,7 +37,7 @@ def plotData(data):
 
 
     fig.update_layout(
-        title_text="RAM Usage Over Time",
+        title_text="System Monitoring Dashboard - RAM",
         title_font_size=30,
         title_x=0.5,
         title_xanchor="center",
@@ -51,7 +51,7 @@ def plotData(data):
         template="plotly_dark",
         hovermode="x unified",
         plot_bgcolor='rgba(20, 20, 20, 0.5)',
-        height=630,
+        height=700,
         autosize=True  # Makes the plot responsive
     )
 
