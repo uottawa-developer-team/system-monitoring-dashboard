@@ -1,81 +1,6 @@
-div, span, p, input, textarea, button, label {
-    font-size: 28px;
-    font-weight: 300;
-}
-div, span, p, h1, h2, h3, h4, input, textarea, button, label {
-    /* font-family: 'Open Sans', sans-serif; */
-    /* color: black; */
-    color: #222;
-}
-.intext{
-    text-align: center;
-    height: 5vh;
-    /* transform: translateY(-50%); */
-}
-
-.plot {
-    width: 80vw;
-    /* height: 15%; */
-    margin-bottom: 10px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #2a3e48;
-    display: flex;
-    flex-direction: column;
-    overflow-y: hidden; /* prevent scrollbars */
-}
-
-
-.plots-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* height: 100vh; makes the parent container take full height */
-}
-
-.intro {
-    height: 100vh;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 50px;
-}
-.row a {
-    color: #fff;
-    text-decoration: none;
-    padding: 5px;
-    border-radius: 5px;
-}
-.row a:hover {
-    background-color: #555;
-}
-
-.header {
-    font-size: 5vh;
-}
-
-
-#menu-bar {
-    background-color: #333;
-    transition: all 0.3s ease-in-out;
-    z-index: 1000;
-}
-
-#menu-bar.hidden {
-    transform: translateY(-100%);
-}
-
-
 .scroll-top {
     position: fixed;
-    z-index: 1;
+    z-index: -1;
     border: none;
     cursor: pointer;
     transition: all .25s ease-in-out, background-color 0.2s ease-in-out;
@@ -88,20 +13,199 @@ div, span, p, h1, h2, h3, h4, input, textarea, button, label {
     padding: 0.5em;
     width: 20px;
     height: 20px;
-    background-color: #F2F2F2;
+    background-color: #000000;
     opacity: 1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-  
-.scroll-top:hover {
-    background-color: #9792b4;
-    svg {
-        fill: #0a19ec;
+    svg{
+        fill:#bab7bb
     }
+    box-shadow: 0 0 20px rgba(186, 183, 187, 1); /* add a subtle box shadow */
+}
+
+.scroll-top:hover {
+    background-color: #bab7bb;
+    svg{
+        fill:#000000
+    }
+}
+
+.scroll-top {
+    display: flex; /* Ensure it is visible */
+    opacity: 1; /* Ensure it is fully visible */
+    z-index: 9999; /* Ensure it is on top of other elements */
+}
+
+.plot {
+    width: 80vw;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+    /* background-color: #2a3e48; */
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden; /* prevent scrollbars */
+    box-shadow: 0 0 20px rgba(186, 183, 187, 1); /* add a subtle box shadow */
+
+}
+
+.plots-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; makes the parent container take full height */
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50px;
+}
+.navbar a {
+    color: #000000;
+    color: #bab7bb;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1vw;
+    border-radius: 30px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.navbar a:hover {
+    background-color: #555;
+    color: #000000;
+}
+
+.header {
+    font-size: 5vh;
+    padding-left: 40px;
+    font-family: "Impact", Arial #bab7bb, sans-serif;
+    color: #bab7bb;
+}
+
+
+#menu-bar {
+    background-color: #696161;
+    background-color: #bab7bb;
+    background-color: #000000;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+#menu-bar.hidden {
+    transform: translateY(-100%);
 }
   
 .svg-icon {
-    fill: #352bc4;
+    fill: #000000;
     width: 24px;
     height: 24px;
+}
+
+.firstpage {
+    background-image: url('bg_01.jpg');
+    background-size: 100% 100vh;
+    background-attachment: fixed;
+    min-height: 100%; /* changed from 100vh to 100% */
+    width: 100%;
+    position: relative;
+}
+
+.firstpage {
+    min-height: 100vh;
+    width: 100%;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-image: url('bg_01.jpg');
+    background-repeat: repeat; /* Repeats the background image */
+    background-attachment: fixed; /* Ensures the background stays fixed while scrolling */
+    background-position: top left; /
+}
+
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box; /* add this property */
+    border-radius: 10px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+
+.hero-section {
+    position: absolute; /* make it absolute positioned */
+    top: 150px; /* adjust the top position to move it down */
+    left: 40px; /* align it with the left edge of the screen */
+    width: 30%; /* keep the width as 30% */
+    height: 70%;
+    max-width: 50%; /* keep the max-width as 50% */
+    padding: 20px; /* keep the padding */
+    box-sizing: border-box; /* keep the box-sizing */
+    /* background-color: #696161; keep the background color */
+    border-radius: 10px; /* keep the border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* keep the box shadow */
+
+    
+}
+
+
+.hero-section {
+    background-color: #696161; /* add a light gray background */
+    background-color: black;
+    width: 50vw;
+    border-radius: 10px; /* add a subtle border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle box shadow */
+    box-shadow: 0 0 30px rgba(186, 183, 187, 1); /* add a subtle box shadow */
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 1rem;    
+}
+
+.hero-section p, h1{
+    color: #bab7bb;
+}
+
+.navbar{
+    box-shadow: 0 0 30px #bab7bb; /* add a subtle box shadow */
+}
+
+
+.hero-section {
+    
+    height: 75vh; /* Let height adjust based on content */
+    max-width: 80vw; /* Keep max-width for larger screens */
+    padding: 1.5em; /* Adjust padding with em for flexibility */
+    border-radius: 20px;
+    /* Responsive font size */
+    font-size: calc(0.5em + 0.6vw);
+}
+
+.hero-section h1 {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        width: 50vw; /* On large screens, use 30% width */
+        left: 25vw; /* Center it horizontally */
+        top: 20vh; /* Adjust top for large screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section {
+        width: 50vw; /* On large screens, use 30% width */
+        left: 25vw; /* Center it horizontally */
+        top: 20vh; /* Adjust top for large screens */
+    }
 }
