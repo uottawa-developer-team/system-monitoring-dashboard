@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get the absolute path of the populate_variable_data.sh script
-SCRIPT_PATH=$(realpath "$(dirname "$0")/populate_variable_data.sh")
+SCRIPT_PATH=$(realpath "$(dirname "$0")/smd_process.sh")
 
 # Check if the script file exists
 if [[ ! -f "$SCRIPT_PATH" ]]; then
@@ -23,6 +23,8 @@ if [[ -n "$EXISTING_CRON" ]]; then
 else
     # Append the cron job if it doesn't exist
     (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
+    # Execute the script once in the background
+    "$SCRIPT_PATH" &
     if [[ $? -eq 0 ]]; then
         echo "SYSTEM MONITORING DASHBOARD: Cron job added successfully."
     else
@@ -30,5 +32,3 @@ else
     fi
 fi
 
-# Execute the script once in the background
-"$SCRIPT_PATH" &
