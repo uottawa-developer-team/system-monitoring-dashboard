@@ -160,8 +160,23 @@ def plotNet(t1, t2, file, figure, row=2, col=2):
     tx_bytes = [int(entry['network']['tx_bytes'])/(1024**2) for entry in data]
     
 
-    figure.add_bar(x=timestamps, y=rx_bytes, name="Received Bytes", row=row, col=col)
-    figure.add_bar(x=timestamps, y=tx_bytes, name="Transmitted Bytes", row=row, col=col)
+    # Convert timestamps to datetime objects
+    dt_timestamps = [datetime.strptime(t.strftime("%Y-%m-%d %H:%M:%S"), '%Y-%m-%d %H:%M:%S') for t in timestamps]
+
+    # Calculate the time difference between consecutive timestamps
+    time_diffs = [(dt_timestamps[i] - dt_timestamps[i-1]).total_seconds() / 60 for i in range(1, len(dt_timestamps))]
+
+    # Calculate the average time difference
+    avg_time_diff = sum(time_diffs) / len(time_diffs)
+
+    # Set the bar width to half of the average time difference
+    bar_width = avg_time_diff / 2
+
+    figure.add_bar(x=timestamps, y=rx_bytes, name="Received Bytes", width=bar_width * 60 * 1000, row=row, col=col)  # Convert bar width to milliseconds
+    figure.add_bar(x=timestamps, y=tx_bytes, name="Transmitted Bytes", width=bar_width * 60 * 1000,  row=row, col=col)  # Convert bar width to milliseconds
+
+    # figure.add_bar(x=timestamps, y=rx_bytes, name="Received Bytes", )
+    # figure.add_bar(x=timestamps, y=tx_bytes, name="Transmitted Bytes", row=row, col=col)
 
 
     figure.update_yaxes(title_text="Network Usage (MB)", row=row, col=col)
@@ -206,7 +221,7 @@ def plot(t1, t2, t1_disk):
         template="plotly_dark",
         hovermode="x unified",
         plot_bgcolor='rgba(20, 20, 20, 0.5)',
-        height=650,
+        height=700,
         autosize=True  # Makes the plot responsive
     )
     fig.update_xaxes(
