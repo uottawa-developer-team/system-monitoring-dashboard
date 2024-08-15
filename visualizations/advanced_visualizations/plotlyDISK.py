@@ -30,7 +30,7 @@ def plotData(data):
     timestamps = [datetime.strptime(entry['timestamp'], '%Y-%m-%d %H:%M:%S') for entry in data]
 
     # Find the name of disk(s)
-    disks = [ data[0]['disk'][i]['device'] for i in range (len(data[0]['disk']))]
+    disks = [ data[-1]['disk'][i]['device'] for i in range (len(data[-1]['disk']))]
 
     # Sort the disk(s) name(s)
     disks = sorted(disks)
@@ -107,7 +107,7 @@ def plotData(data):
             x=0.15
         ),
         template="plotly_dark",
-        height=630,
+        height=700,
         hovermode="x unified",
         autosize=True,
         plot_bgcolor='rgba(20, 20, 20, 0.5)',  # Set the plot background color to a semi-transparent white
