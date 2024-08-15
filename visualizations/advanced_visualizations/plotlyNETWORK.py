@@ -28,10 +28,21 @@ def plotData(data):
     rx_bytes = [int(entry['network']['rx_bytes'])/(1024**2) for entry in data]
     tx_bytes = [int(entry['network']['tx_bytes'])/(1024**2) for entry in data]
 
+    # Convert timestamps to datetime objects
+    dt_timestamps = [datetime.strptime(t, '%Y-%m-%d %H:%M:%S') for t in timestamps]
+
+    # Calculate the time difference between consecutive timestamps
+    time_diffs = [(dt_timestamps[i] - dt_timestamps[i-1]).total_seconds() / 60 for i in range(1, len(dt_timestamps))]
+
+    # Calculate the average time difference
+    avg_time_diff = sum(time_diffs) / len(time_diffs)
+
+    # Set the bar width to half of the average time difference
+    bar_width = avg_time_diff / 2
 
     fig = go.Figure()
-    fig.add_bar(x=timestamps, y=rx_bytes, name="Received Bytes")
-    fig.add_bar(x=timestamps, y=tx_bytes, name="Transmitted Bytes")
+    fig.add_bar(x=timestamps, y=rx_bytes, name="Received Bytes", width=bar_width * 60 * 1000, marker_color='rgba(135, 206, 235, 0.7)')  # Convert bar width to milliseconds
+    fig.add_bar(x=timestamps, y=tx_bytes, name="Transmitted Bytes", width=bar_width * 60 * 1000, marker_color='rgba(255, 99, 71, 0.7)')  # Convert bar width to milliseconds
     fig.update_layout(
         title_text="System Monitoring Dashboard - Network Usage",
         title_font_size=30,
@@ -49,7 +60,7 @@ def plotData(data):
         barmode='group',
         hovermode="x unified",
         plot_bgcolor='rgba(20, 20, 20, 0.5)',
-        height=630,
+        height=700,
         autosize=True  # Makes the plot responsive
     )
 
