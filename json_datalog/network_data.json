@@ -1,13 +1,5 @@
 [
 {
-  "timestamp": "2024-08-14 09:18:01",
-  "network": {
-    "primary_interface": "wlp3s0",
-    "rx_bytes": "90252172",
-    "tx_bytes": "9178720"
-  }
-},
-{
   "timestamp": "2024-08-14 09:19:01",
   "network": {
     "primary_interface": "wlp3s0",
@@ -10093,6 +10085,14 @@
     "primary_interface": "wlp3s0",
     "rx_bytes": "1286690664",
     "tx_bytes": "1424870444"
+  }
+},
+{
+  "timestamp": "2024-08-15 16:08:01",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "1287036488",
+    "tx_bytes": "1428586960"
   }
 }
 ]
