@@ -2,10 +2,10 @@ import json
 from datetime import datetime, timedelta
 from plotly.subplots import make_subplots # type: ignore
 import os
-CPU_FILEPATH = os.path.join(os.path.dirname(__file__), "../json_datalog/cpu_usage.json")
-MEM_FILEPATH = os.path.join(os.path.dirname(__file__), "../json_datalog/memory_usage.json")
-DISK_FILEPATH = os.path.join(os.path.dirname(__file__), "../json_datalog/disk_data.json")
-NET_FILEPATH = os.path.join(os.path.dirname(__file__), "../json_datalog/network_data.json")
+CPU_FILEPATH = os.path.join(os.path.dirname(__file__), "../../json_datalog/cpu_usage.json")
+MEM_FILEPATH = os.path.join(os.path.dirname(__file__), "../../json_datalog/memory_usage.json")
+DISK_FILEPATH = os.path.join(os.path.dirname(__file__), "../../json_datalog/disk_data.json")
+NET_FILEPATH = os.path.join(os.path.dirname(__file__), "../../json_datalog/network_data.json")
 
 # Function to grab data
 def grabData(startDate, endDate, FILEPATH):

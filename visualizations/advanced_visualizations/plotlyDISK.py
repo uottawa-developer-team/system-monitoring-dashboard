@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from plotly.subplots import make_subplots # type: ignore
 import os
 
-FILEPATH = os.path.join(os.path.dirname(__file__), "../json_datalog/disk_data.json")
+FILEPATH = os.path.join(os.path.dirname(__file__), "../../json_datalog/disk_data.json")
 
 
 def grabData(startDate, endDate):
