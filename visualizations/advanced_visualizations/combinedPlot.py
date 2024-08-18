@@ -49,10 +49,6 @@ def plotCpu(t1, t2, file, figure, row=1, col=1):
         title_text="Time",
         range=[min(timestamps), max(timestamps)],
         fixedrange=True,
-        rangeslider=dict(
-            visible=True,
-            thickness=0.1
-        ),
         matches='x',
         type='date',
         row=row, 
@@ -101,10 +97,6 @@ def plotMem(t1, t2, file, figure, row=1, col=2):
         type="date",
         range=[min(timestamps), max(timestamps)],
         fixedrange=True,
-        rangeslider=dict(
-            visible=True,
-            thickness=0.1
-        ),
         matches='x',
         row=row, 
         col=col
@@ -156,8 +148,8 @@ def plotNet(t1, t2, file, figure, row=2, col=2):
     # Extract the timestamps from the data
     timestamps = [datetime.strptime(entry['timestamp'], '%Y-%m-%d %H:%M:%S') for entry in data]
 
-    rx_bytes = [int(entry['network']['rx_bytes'])/(1024**2) for entry in data]
-    tx_bytes = [int(entry['network']['tx_bytes'])/(1024**2) for entry in data]
+    rx_bytes = [int(entry['network']['rx_bytes'])/(1024**3) for entry in data]
+    tx_bytes = [int(entry['network']['tx_bytes'])/(1024**3) for entry in data]
     
 
     # Convert timestamps to datetime objects
@@ -175,19 +167,16 @@ def plotNet(t1, t2, file, figure, row=2, col=2):
     figure.add_bar(x=timestamps, y=rx_bytes, name="Received Bytes", width=bar_width * 60 * 1000, row=row, col=col)  # Convert bar width to milliseconds
     figure.add_bar(x=timestamps, y=tx_bytes, name="Transmitted Bytes", width=bar_width * 60 * 1000,  row=row, col=col)  # Convert bar width to milliseconds
 
-    # figure.add_bar(x=timestamps, y=rx_bytes, name="Received Bytes", )
+    # figure.add_bar(x=timestamps, y=rx_bytes, name="Received Bytes", row=row, col=col)
     # figure.add_bar(x=timestamps, y=tx_bytes, name="Transmitted Bytes", row=row, col=col)
 
 
-    figure.update_yaxes(title_text="Network Usage (MB)", row=row, col=col)
+    figure.update_yaxes(title_text="Network Usage (GB)", row=row, col=col)
     figure.update_xaxes(
         title_text="Time", 
         range=[min(timestamps), max(timestamps)],
         fixedrange=True,
-        rangeslider=dict(
-            visible=True,
-            thickness=0.1
-        ),
+        matches='x',
         row=row, 
         col=col)
 
@@ -196,7 +185,7 @@ def plotNet(t1, t2, file, figure, row=2, col=2):
 def plot(t1, t2, t1_disk):
 
     # Create a figure with 2 rows and 2 columns
-    fig = make_subplots(rows=2, cols=2, specs=[[{"type": "xy"}, {"type": "xy"}], [{"type": "pie"}, {"type": "xy"}]], vertical_spacing=0.3) # subplot_titles=("CPU", "RAM", "DISK", "NET")
+    fig = make_subplots(rows=2, cols=2, specs=[[{"type": "xy"}, {"type": "xy"}], [{"type": "pie"}, {"type": "xy"}]]) # subplot_titles=("CPU", "RAM", "DISK", "NET")
     
     plotCpu(t1, t2, CPU_FILEPATH, fig, row=1, col=1)
     plotMem(t1, t2, MEM_FILEPATH, fig, row=1, col=2)
@@ -228,9 +217,9 @@ def plot(t1, t2, t1_disk):
         tickformat="%H:%M:%S",
         rangeselector=dict(
             buttons=list([
-                dict(count=1, label="1m", step="minute", stepmode="backward"),
-                dict(count=5, label="5m", step="minute", stepmode="backward"),
-                dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(count=1, label="1hr", step="hour", stepmode="backward"),
+                dict(count=4, label="4hr", step="hour", stepmode="backward"),
+                dict(count=8, label="8hr", step="hour", stepmode="backward"),
                 dict(label="All", step="all")
             ]),
             bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
