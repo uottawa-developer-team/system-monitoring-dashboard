@@ -20,6 +20,7 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
 ## Project Structure
 ```
 - system-monitoring-dashboard/
+  - .venv                  # Directory for virtual environment
   - data/                  # Directory to store collected data
   - json_datalogs/         # Directiory to store collected data in JSON format
   - scripts/               # Bash scripts for data collection
@@ -29,6 +30,7 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
     - initial_documentaion.md
     - sprint_1_documentation.md
     - sprint_2_documentation.md
+    - sprint_3_documentation.md
   - README.md              # Project documentation
   - requirements.txt       # Required Python libraries
   - LICENSE                # License 
