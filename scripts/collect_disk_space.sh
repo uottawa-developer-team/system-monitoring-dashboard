@@ -6,8 +6,8 @@ timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 # get data
 disk_data=$(df -h --output=source,size,used,avail,pcent | grep "^/dev/") 
 
-echo "$timestamp" >> ../data/disk_data.log
-echo "$disk_data" >> ../data/disk_data.log
+echo "$timestamp" >> "$(dirname "0")/../data/disk_data.log"
+echo "$disk_data" >> "$(dirname "0")/../data/disk_data.log"
 
 #create a json representation of the data
 create_json(){
@@ -34,7 +34,7 @@ create_json(){
 
 
 # Path to file to save JSON data
-file="../json_datalog/disk_data.json"
+file="$(dirname "$0")/../json_datalog/disk_data.json"
 
 # Hard-coding Edge cases for the JSON format file
 

@@ -7,8 +7,8 @@ timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 cpu_data=$(top -b -n 1 | head -n -5 | grep "Cpu")
 
 # Write into the log file
-echo $timestamp >> "../data/cpu_usage.log"
-echo $cpu_data >> "../data/cpu_usage.log"
+echo $timestamp >> "$(dirname "$0")/../data/cpu_usage.log"
+echo $cpu_data >> "$(dirname "$0")/../data/cpu_usage.log"
 
 if [[ ! -n $cpu_data ]]; then #if null
 	cpu_data="%Cpu(s): 0.0 us, 0.0 sy, 0.0 ni, 0.0 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st"
@@ -44,7 +44,7 @@ create_json(){
 
 # Path to file to save JSON data
 
-file="../json_datalog/cpu_usage.json"
+file="$(dirname "$0")/../json_datalog/cpu_usage.json"
 
 # Hard-coding Edge cases for the JSON format file
 
@@ -74,3 +74,5 @@ echo "]" >> $file
 if [[ $(wc -l < "$file" | awk '{print $1}') -gt 18740 ]]; then
 	sed -i '2,14d' $file
 fi
+
+find "$(dirname "$0")/../json_datalog/" -type f -name 'sed*' -delete

@@ -28,8 +28,8 @@ fi
 clean_data="Primary Interface: $primary_interface\nStats: $network_stats"
 
 #log network activity with timestamp
-echo "$timestamp" >> ../data/network_activity.log
-echo -e "$clean_data" >> ../data/network_activity.log
+echo "$timestamp" >> "$(dirname "$0")/../data/network_activity.log"
+echo -e "$clean_data" >> "$(dirname "$0")/../data/network_activity.log"
 
 
 #create a json representation of the data
@@ -52,7 +52,7 @@ create_json(){
 }
 
 # Path to file to save JSON data
-file="../json_datalog/network_data.json"
+file="$(dirname "$0")/../json_datalog/network_data.json"
 
 # Hard-coding Edge cases for the JSON format file
 

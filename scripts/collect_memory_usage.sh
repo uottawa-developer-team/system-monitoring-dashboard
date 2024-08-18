@@ -13,8 +13,8 @@ used_memory=$(echo "$memory_data" | awk '{print $3}')
 clean_data=$(printf "Total: %sMB Used: %sMB" "$total_memory" "$used_memory")
 
 #log the memory usage with the timestamp
-echo "$timestamp" >> ../data/memory_usage.log
-echo "$clean_data" >> ../data/memory_usage.log
+echo "$timestamp" >> "$(dirname "$0")/../data/memory_usage.log"
+echo "$clean_data" >> "$(dirname "$0")/../data/memory_usage.log"
 
 if [[ ! -n $memory_data ]]; then #if null
 	memory_data="Mem    0   0   0   0   0   0"
@@ -45,7 +45,7 @@ create_json(){
 }
 
 # Path to file to save JSON data
-file="../json_datalog/memory_usage.json"
+file="$(dirname "$0")/../json_datalog/memory_usage.json"
 
 # Hard-coding Edge cases for the JSON format file
 
