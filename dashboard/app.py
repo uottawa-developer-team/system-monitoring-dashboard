@@ -1,5 +1,6 @@
 import sys
-sys.path.append("../visualizations/advanced_visualizations/")
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), "../visualizations/advanced_visualizations"))
 import plotlyCPU # type: ignore
 import plotlyRAM # type: ignore
 import plotlyNETWORK # type: ignore
@@ -38,4 +39,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    # app.run(debug=True, host='0.0.0.0')
+    app.run()
