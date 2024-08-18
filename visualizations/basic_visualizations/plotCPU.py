@@ -1,8 +1,9 @@
 from matplotlib import pyplot as plt, dates as mdates # type: ignore
 import json
 from datetime import datetime, timedelta
+import os
 
-FILEPATH = "../../json_datalog/cpu_usage.json"
+FILEPATH = os.path.join(os.path.dirname(__file__), "../../json_datalog/cpu_usage.json")
 
 
 def grabData(startDate, endDate):
