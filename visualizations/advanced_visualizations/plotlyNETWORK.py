@@ -25,8 +25,8 @@ def grabData(startDate, endDate):
 def plotData(data):
     
     timestamps = [entry['timestamp'] for entry in data]
-    rx_bytes = [int(entry['network']['rx_bytes'])/(1024**2) for entry in data]
-    tx_bytes = [int(entry['network']['tx_bytes'])/(1024**2) for entry in data]
+    rx_bytes = [int(entry['network']['rx_bytes'])/(1024**3) for entry in data]
+    tx_bytes = [int(entry['network']['tx_bytes'])/(1024**3) for entry in data]
 
     # Convert timestamps to datetime objects
     dt_timestamps = [datetime.strptime(t, '%Y-%m-%d %H:%M:%S') for t in timestamps]
@@ -48,7 +48,7 @@ def plotData(data):
         title_font_size=30,
         title_x=0.5,
         xaxis_title="Time",
-        yaxis_title="MegaBytes (MB)",
+        yaxis_title="GigaBytes (GB)",
         legend=dict(
             orientation="h",
             yanchor="bottom",
@@ -75,8 +75,8 @@ def plotData(data):
         type='date',
         rangeselector=dict(
             buttons=list([
-                dict(count=5, label="5m", step="minute", stepmode="backward"),
-                dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(count=1, label="1hr", step="hour", stepmode="backward"),
+                dict(count=4, label="4hr", step="hour", stepmode="backward"),
                 dict(label="All", step="all")
             ]),
             bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
