@@ -98,9 +98,9 @@ def plotData(data):
 
 if __name__ == "__main__":
     # runspace
-    t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    t2 = datetime.now()
     t1 = (t2 - timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
 
     FILEPATH = "../../json_datalog/network_data.json"
     
-    plotData(grabData(t1, t2))
+    plotData(grabData(t1, t2.strftime("%Y-%m-%d %H:%M:%S")))

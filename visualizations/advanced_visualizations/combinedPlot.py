@@ -244,8 +244,8 @@ def plot(t1, t2, t1_disk):
 
 if __name__ == "__main__":
     # runspace
-    t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    t2 = datetime.now()
     t1_cmn = (t2 - timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
     t1_d = (t2 - timedelta(days=5)).strftime("%Y-%m-%d %H:%M:%S")
 
-    plot(t1_cmn,t2,t1_d)
+    plot(t1_cmn,t2.strftime("%Y-%m-%d %H:%M:%S"),t1_d)
