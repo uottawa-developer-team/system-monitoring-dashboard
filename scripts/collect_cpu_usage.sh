@@ -6,9 +6,9 @@ timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 # Get the CPU data
 cpu_data=$(top -b -n 1 | head -n -5 | grep "Cpu")
 
-# Write into the log file
-echo $timestamp >> "$(dirname "$0")/../data/cpu_usage.log"
-echo $cpu_data >> "$(dirname "$0")/../data/cpu_usage.log"
+# # Write into the log file
+# echo $timestamp >> "$(dirname "$0")/../data/cpu_usage.log"
+# echo $cpu_data >> "$(dirname "$0")/../data/cpu_usage.log"
 
 if [[ ! -n $cpu_data ]]; then #if null
 	cpu_data="%Cpu(s): 0.0 us, 0.0 sy, 0.0 ni, 0.0 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st"

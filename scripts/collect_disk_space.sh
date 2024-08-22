@@ -6,8 +6,8 @@ timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 # get data
 disk_data=$(df -h --output=source,size,used,avail,pcent | grep "^/dev/") 
 
-echo "$timestamp" >> "$(dirname "0")/../data/disk_data.log"
-echo "$disk_data" >> "$(dirname "0")/../data/disk_data.log"
+# echo "$timestamp" >> "$(dirname "0")/../data/disk_data.log"
+# echo "$disk_data" >> "$(dirname "0")/../data/disk_data.log"
 
 #create a json representation of the data
 create_json(){

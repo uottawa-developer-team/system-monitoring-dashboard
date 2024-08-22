@@ -27,9 +27,9 @@ fi
 #combine interfaces & stats into clean data string
 clean_data="Primary Interface: $primary_interface\nStats: $network_stats"
 
-#log network activity with timestamp
-echo "$timestamp" >> "$(dirname "$0")/../data/network_activity.log"
-echo -e "$clean_data" >> "$(dirname "$0")/../data/network_activity.log"
+# #log network activity with timestamp
+# echo "$timestamp" >> "$(dirname "$0")/../data/network_activity.log"
+# echo -e "$clean_data" >> "$(dirname "$0")/../data/network_activity.log"
 
 
 #create a json representation of the data

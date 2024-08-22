@@ -12,9 +12,9 @@ used_memory=$(echo "$memory_data" | awk '{print $3}')
 
 clean_data=$(printf "Total: %sMB Used: %sMB" "$total_memory" "$used_memory")
 
-#log the memory usage with the timestamp
-echo "$timestamp" >> "$(dirname "$0")/../data/memory_usage.log"
-echo "$clean_data" >> "$(dirname "$0")/../data/memory_usage.log"
+# #log the memory usage with the timestamp
+# echo "$timestamp" >> "$(dirname "$0")/../data/memory_usage.log"
+# echo "$clean_data" >> "$(dirname "$0")/../data/memory_usage.log"
 
 if [[ ! -n $memory_data ]]; then #if null
 	memory_data="Mem    0   0   0   0   0   0"
