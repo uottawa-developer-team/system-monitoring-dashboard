@@ -62,9 +62,10 @@ def plotData(data):
 
         # Update y-axis label
         fig.update_yaxes(title_text="Disk Space for " + disks[i][-4:] + " (GB)" , row=i+1, col=1)
+
         fig.update_xaxes(
             title_text="Time",
-            tickformat="%H:%M:%S",
+            tickformat="%b %d %H:%M",
             range=[min(timestamps), max(timestamps)],
             fixedrange=True,
             rangeslider=dict(
@@ -76,7 +77,6 @@ def plotData(data):
             row=i+1, 
             col=1
         )
-
         
         fig.add_pie(labels=['Used Space (GB)', 'Available Space (GB)'], 
             values=[usedSpace[-1], availSpace[-1]],
@@ -114,19 +114,19 @@ def plotData(data):
         plot_bgcolor='rgba(20, 20, 20, 0.5)',  # Set the plot background color to a semi-transparent white
     )
     
+    
+    
     fig.update_xaxes(
-        fixedrange=True,
         rangeselector=dict(
             buttons=list([
-                dict(count=60, label="1hr", step="minute", stepmode="backward"),
-                dict(count=4, label="4hr", step="hour", stepmode="backward"),
+                dict(count=24, label="1-day", step="hour", stepmode="backward"),
+                dict(count=120, label="5-day", step="hour", stepmode="backward"),
                 dict(label="All", step="all")
             ]),
             bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
             font=dict(color="black"),   # Change the text color of the range selector buttons
             y=1.05
         ),
-        type="date",
         row=1,
         col=1,
     )
@@ -146,9 +146,7 @@ def plotData(data):
 
 if __name__ == "__main__":
     # runspace
-    t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    t2 = datetime.now()
     t1 = (t2 - timedelta(days=15)).strftime("%Y-%m-%d %H:%M:%S")
-
-    FILEPATH = "../../json_datalog/disk_data.json"
     
-    plotData(grabData(t1, t2))
+    plotData(grabData(t1, t2.strftime("%Y-%m-%d %H:%M:%S")))
