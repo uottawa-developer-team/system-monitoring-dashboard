@@ -7,11 +7,11 @@
 <div class="firstpage">
     <div class="navbar" id="menu-bar">
         <h1 class="header">Data Visualizations</h1>
+        <a href="#combined-plot" class="scroll-link">Overview</a>
         <a href="#cpu-plot" class="scroll-link">CPU Usage</a>
         <a href="#memory-plot" class="scroll-link">RAM Usage</a>
-        <a href="#disk-plot" class="scroll-link">DISK Usage</a>
         <a href="#network-plot" class="scroll-link">Network Usage</a>
-        <a href="#combined-plot" class="scroll-link">Overview</a>
+        <a href="#disk-plot" class="scroll-link">DISK Usage</a>
     </div>
     <!-- Hero Section -->
     <div class="hero-section">
@@ -32,9 +32,15 @@
     </div>
 </div>
 
-
+<a class="scroll-top" id="btnScrollTop">
+    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+</a>
 
 <div class="plots-container">
+    <p id="combined-plot"></p>
+    <div class="plot" >
+        <div>{{ combined_plot | safe }}</div>
+    </div>
     <p id="cpu-plot"></p>
     <div class="plot">
         <div>{{ cpu_plot | safe }}</div>
@@ -51,14 +57,5 @@
     <div class="plot" >
         <div>{{ disk_plot | safe }}</div>
     </div>
-    <p></p>
-    <p id="combined-plot"></p>
-    <div class="plot" >
-        <div>{{ combined_plot | safe }}</div>
-    </div>
 </div>
-<a class="scroll-top" id="btnScrollTop">
-    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-</a>
-
 {% endblock %}

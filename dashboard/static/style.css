@@ -1,18 +1,65 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-image: url('bg_01.jpg');
+    background-repeat: repeat; /* Repeats the background image */
+    background-attachment: fixed; /* Ensures the background stays fixed while scrolling */
+    background-size: cover;
+}
+
+.header {
+    font-size: 5vh;
+    padding-left: 3vw;
+    font-family: "Impact", Arial #bab7bb, sans-serif;
+    color: #bab7bb;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem;
+    background-color: #000000;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0 0 30px #bab7bb; /* add a subtle box shadow */
+}
+.navbar a {
+    color: #000000;
+    color: #bab7bb;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1vw;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    font-family: "Lucida Console", "Courier New", monospace;
+    box-shadow: 0 0 10px #bab7bb; /* add a subtle box shadow */
+}
+.navbar a:hover {
+    background-color: #bab7bb;
+    color: #000000;
+    transform: scale(1.1);
+}
+
+#menu-bar.hidden {
+    transform: translateY(-100%);
+}
+
 .scroll-top {
     position: fixed;
-    z-index: -1;
-    border: none;
+    z-index: 9999; /* Ensure it is on top of other elements */
     cursor: pointer;
-    transition: all .25s ease-in-out, background-color 0.2s ease-in-out;
-    bottom: 10px;
-    right: 10px;
+    transition: all .50s ease-in-out, background-color 0.5s ease-in-out;
+    bottom: 3rem;
+    right: 3rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 40px;
     padding: 0.5em;
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
     background-color: #000000;
     opacity: 1;
     svg{
@@ -26,77 +73,9 @@
     svg{
         fill:#000000
     }
+    transform: scale(1.1);
 }
 
-.scroll-top {
-    display: flex; /* Ensure it is visible */
-    opacity: 1; /* Ensure it is fully visible */
-    z-index: 9999; /* Ensure it is on top of other elements */
-}
-
-.plot {
-    width: 80vw;
-    margin-bottom: 10px;
-    border-radius: 20px;
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
-    /* background-color: #2a3e48; */
-    display: flex;
-    flex-direction: column;
-    overflow-y: hidden; /* prevent scrollbars */
-    box-shadow: 0 0 20px rgba(186, 183, 187, 1); /* add a subtle box shadow */
-
-}
-
-.plots-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* height: 100vh; makes the parent container take full height */
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-radius: 50px;
-}
-.navbar a {
-    color: #000000;
-    color: #bab7bb;
-    text-decoration: none;
-    font-size: 1.5rem;
-    padding: 1vw;
-    border-radius: 30px;
-    font-family: "Lucida Console", "Courier New", monospace;
-}
-.navbar a:hover {
-    background-color: #555;
-    color: #000000;
-}
-
-.header {
-    font-size: 5vh;
-    padding-left: 40px;
-    font-family: "Impact", Arial #bab7bb, sans-serif;
-    color: #bab7bb;
-}
-
-
-#menu-bar {
-    background-color: #696161;
-    background-color: #bab7bb;
-    background-color: #000000;
-    transition: all 0.3s ease-in-out;
-    z-index: 1000;
-}
-
-#menu-bar.hidden {
-    transform: translateY(-100%);
-}
-  
 .svg-icon {
     fill: #000000;
     width: 24px;
@@ -104,44 +83,13 @@
 }
 
 .firstpage {
-    background-image: url('bg_01.jpg');
+    /* background-image: url('bg_01.jpg'); */
     background-size: 100% 100vh;
     background-attachment: fixed;
-    min-height: 100%; /* changed from 100vh to 100% */
+    min-height: 100vh;
     width: 100%;
     position: relative;
 }
-
-.firstpage {
-    min-height: 100vh;
-    width: 100%;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    background-image: url('bg_01.jpg');
-    background-repeat: repeat; /* Repeats the background image */
-    background-attachment: fixed; /* Ensures the background stays fixed while scrolling */
-    background-position: top left; /
-}
-
-
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 0.5rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-sizing: border-box; /* add this property */
-    border-radius: 10px;
-}
-
-.footer p {
-    margin: 0;
-}
-
 
 .hero-section {
     position: absolute; /* make it absolute positioned */
@@ -155,7 +103,7 @@ body, html {
     /* background-color: #696161; keep the background color */
     border-radius: 10px; /* keep the border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* keep the box shadow */
-
+    
     
 }
 
@@ -175,9 +123,6 @@ body, html {
     color: #bab7bb;
 }
 
-.navbar{
-    box-shadow: 0 0 30px #bab7bb; /* add a subtle box shadow */
-}
 
 
 .hero-section {
@@ -209,3 +154,41 @@ body, html {
         top: 20vh; /* Adjust top for large screens */
     }
 }
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box; /* add this property */
+    border-radius: 10px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.plot {
+    width: 80vw;
+    margin-bottom: 5vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden; /* prevent scrollbars */
+    box-shadow: 0 0 20px rgba(186, 183, 187, 1); /* add a subtle box shadow */
+    
+}
+
+.plots-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
