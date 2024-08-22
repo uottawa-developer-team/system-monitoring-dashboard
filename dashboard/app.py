@@ -1,6 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), "../visualizations/advanced_visualizations"))
+import webbrowser
+import time 
+import threading
 import plotlyCPU # type: ignore
 import plotlyRAM # type: ignore
 import plotlyNETWORK # type: ignore
@@ -37,7 +40,15 @@ def index():
     # Render the index.html template with the plots
     return render_template('index.html', cpu_plot=cpu_plot, memory_plot=memory_plot,  disk_plot=disk_plot, network_plot=network_plot, combined_plot=combined_plot)
 
+@app.route('/shutdown', methods=['POST'])
+def shutdown():
+    os._exit(0)
+    
+def open_browser():
+    time.sleep(3)
+    webbrowser.open("http://127.0.0.1:8429")
+    
 
 if __name__ == '__main__':
-    # app.run(debug=True, host='0.0.0.0')
-    app.run()
+    threading.Thread(target=open_browser).start()
+    app.run(port=8429)

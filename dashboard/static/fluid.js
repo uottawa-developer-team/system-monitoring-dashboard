@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const menuBar = document.getElementById("menu-bar");
     const scrollLinks = document.querySelectorAll(".scroll-link");
     const backToTop = document.getElementById("btnScrollTop")
+    
+    // Shutdown
+    window.addEventListener('beforeunload', function (event) {
+        navigator.sendBeacon('/shutdown');
+    });
+
     // Hide menu bar on scroll
     window.addEventListener("scroll", function() {
         if (window.scrollY > 100) {
@@ -17,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
             menuBar.classList.remove("hidden");
         }
     });
+
 
     // Add event listener to scroll links
     scrollLinks.forEach(link => {
