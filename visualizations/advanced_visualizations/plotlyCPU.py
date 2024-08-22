@@ -117,9 +117,9 @@ def plotData(data):
     fig.update_xaxes(
         rangeselector=dict(
             buttons=list([
-                dict(count=1, label="1m", step="minute", stepmode="backward"),
                 dict(count=5, label="5m", step="minute", stepmode="backward"),
                 dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(count=1, label="1hr", step="hour", stepmode="backward"),
                 dict(label="All", step="all")
             ]),
             bgcolor="rgba(255, 255, 255, 0.5)",  # Change the background color of the range selector
@@ -146,10 +146,7 @@ def plotData(data):
 
 
 if __name__ == "__main__":
-    # runspace
-    t2 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    t2 = datetime.now()
     t1 = (t2 - timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
 
-    FILEPATH = "../../json_datalog/cpu_usage.json"
-
-    plotData(grabData(t1,t2))
+    plotData(grabData(t1,t2.strftime("%Y-%m-%d %H:%M:%S")))
