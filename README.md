@@ -22,7 +22,7 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
 - system-monitoring-dashboard/
   - .venv                  # Directory for virtual environment
   - data/                  # Directory to store collected data
-  - json_datalog/         # Directiory to store collected data in JSON format
+  - json_datalog/          # Directiory to store collected data in JSON format
   - scripts/               # Bash scripts for data collection
   - visualizations/        # Python scripts for data visualization
   - dashboard/             # Flask application for the dashboard
