@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const backToTop = document.getElementById("btnScrollTop")
     
     // Shutdown
-    window.addEventListener('beforeunload', function (event) {
-        navigator.sendBeacon('/shutdown');
-    });
+    // window.addEventListener('beforeunload', function (event) {
+    //    navigator.sendBeacon('/shutdown');
+    // });
 
     // Hide menu bar on scroll
     window.addEventListener("scroll", function() {

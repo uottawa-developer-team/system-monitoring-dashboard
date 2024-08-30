@@ -14,5 +14,125 @@
     "rx_bytes": "1409925729",
     "tx_bytes": "683497776"
   }
+},
+{
+  "timestamp": "2024-08-30 14:03:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44763952863",
+    "tx_bytes": "942150001"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:04:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44952606775",
+    "tx_bytes": "945084850"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:05:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44952762992",
+    "tx_bytes": "945247446"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:06:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44954034286",
+    "tx_bytes": "945462982"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:07:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44954151565",
+    "tx_bytes": "945652857"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:08:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44954604426",
+    "tx_bytes": "945869239"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:09:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44954789150",
+    "tx_bytes": "946057461"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:10:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44956715307",
+    "tx_bytes": "946248849"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:11:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44956857256",
+    "tx_bytes": "946402981"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:12:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44956985738",
+    "tx_bytes": "946657056"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:13:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44957105614",
+    "tx_bytes": "946833170"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:14:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44957203614",
+    "tx_bytes": "946956655"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:15:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44957291090",
+    "tx_bytes": "947058537"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:16:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44957398696",
+    "tx_bytes": "947160210"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:17:32",
+  "network": {
+    "primary_interface": "wlp3s0",
+    "rx_bytes": "44957564056",
+    "tx_bytes": "947330902"
+  }
 }
 ]

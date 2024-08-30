@@ -20,5 +20,170 @@
     "buff_cache": "6115",
     "available": "5645"
   }
+},
+{
+  "timestamp": "2024-08-30 14:03:32",
+  "memory": {
+    "total": "15877",
+    "used": "8479",
+    "free": "368",
+    "shared": "1723",
+    "buff_cache": "9082",
+    "available": "7398"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:04:32",
+  "memory": {
+    "total": "15877",
+    "used": "8465",
+    "free": "291",
+    "shared": "1709",
+    "buff_cache": "9158",
+    "available": "7411"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:05:32",
+  "memory": {
+    "total": "15877",
+    "used": "8541",
+    "free": "365",
+    "shared": "1703",
+    "buff_cache": "9003",
+    "available": "7335"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:06:32",
+  "memory": {
+    "total": "15877",
+    "used": "8547",
+    "free": "332",
+    "shared": "1724",
+    "buff_cache": "9051",
+    "available": "7330"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:07:32",
+  "memory": {
+    "total": "15877",
+    "used": "8476",
+    "free": "353",
+    "shared": "1731",
+    "buff_cache": "9109",
+    "available": "7401"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:08:32",
+  "memory": {
+    "total": "15877",
+    "used": "8531",
+    "free": "313",
+    "shared": "1746",
+    "buff_cache": "9107",
+    "available": "7346"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:09:32",
+  "memory": {
+    "total": "15877",
+    "used": "8505",
+    "free": "277",
+    "shared": "1748",
+    "buff_cache": "9172",
+    "available": "7372"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:10:32",
+  "memory": {
+    "total": "15877",
+    "used": "8438",
+    "free": "341",
+    "shared": "1739",
+    "buff_cache": "9166",
+    "available": "7439"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:11:32",
+  "memory": {
+    "total": "15877",
+    "used": "8456",
+    "free": "346",
+    "shared": "1719",
+    "buff_cache": "9123",
+    "available": "7421"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:12:32",
+  "memory": {
+    "total": "15877",
+    "used": "8777",
+    "free": "571",
+    "shared": "1737",
+    "buff_cache": "8595",
+    "available": "7100"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:13:32",
+  "memory": {
+    "total": "15877",
+    "used": "8503",
+    "free": "296",
+    "shared": "1726",
+    "buff_cache": "9132",
+    "available": "7374"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:14:32",
+  "memory": {
+    "total": "15877",
+    "used": "8452",
+    "free": "289",
+    "shared": "1726",
+    "buff_cache": "9191",
+    "available": "7425"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:15:32",
+  "memory": {
+    "total": "15877",
+    "used": "8443",
+    "free": "303",
+    "shared": "1716",
+    "buff_cache": "9176",
+    "available": "7434"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:16:32",
+  "memory": {
+    "total": "15877",
+    "used": "8441",
+    "free": "344",
+    "shared": "1716",
+    "buff_cache": "9136",
+    "available": "7435"
+  }
+},
+{
+  "timestamp": "2024-08-30 14:17:32",
+  "memory": {
+    "total": "15877",
+    "used": "8473",
+    "free": "314",
+    "shared": "1726",
+    "buff_cache": "9144",
+    "available": "7404"
+  }
 }
 ]

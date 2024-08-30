@@ -1,0 +1,21 @@
+[
+{
+  "timestamp": "2024-08-30 14:03:32",
+  "disk": [
+    {
+      "device": "/dev/sdb1",
+      "size": "915G",
+      "used": "131G",
+      "avail": "738G",
+      "use_pcent": "16%"
+    },
+    {
+      "device": "/dev/sdb2",
+      "size": "1.1G",
+      "used": "6.2M",
+      "avail": "1.1G",
+      "use_pcent": "1%"
+    }
+  ]
+}
+]
