@@ -17,79 +17,56 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
 - Matplotlib
 - Plotly
 
-## Project Structure
+## Package Structure
 ```
-- system-monitoring-dashboard/
-  - .venv                  # Directory for virtual environment
-  - data/                  # Directory to store collected data
-  - json_datalog/          # Directiory to store collected data in JSON format
-  - scripts/               # Bash scripts for data collection
-  - visualizations/        # Python scripts for data visualization
-  - dashboard/             # Flask application for the dashboard
-  - smd_package_linux/     # Directory for Linux package
-  - smd_package_macos/     # Directory for macOS package
-  - webpage/               # Webpage directory for packages download
-  - docs/                  # Directory for additional documentation
-    - initial_documentaion.md
-    - sprint_1_documentation.md
-    - sprint_2_documentation.md
-    - sprint_3_documentation.md
-  - README.md              # Project documentation
-  - requirements.txt       # Required Python libraries
+- smd_package_linux/
+  - README.md              # Package documentation
   - LICENSE                # License 
+  - setup                  # Script to setup cron
+  - run                    # Script to run the visualization
+  - remove                 # Script to remove cron
+  - .processes             # Packaged visualization scripts and dependencies
 ```
-
-## Getting Started
-### Prerequisites
-- Python 3.12.3
-- Bash
-- Browser
-- Virtualenv (optional but recommended)
-
-### Download
-Visit the [System-Monitoring-Dashboard](https://system-monitoring-dashboard.pages.dev/) webpage and download the package specific to your OS, unzip the package and refer to the README for setup instructions
-
-### Installation
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-organization/system-monitoring-dashboard.git
-   cd system-monitoring-dashboard
-   ```
-
-2. **Set Up Virtual Environment (optional)**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install Python Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
 ### Usage
 1. **Setup Cron**
-   Navigate to the `scripts` directory and execute the Bash script `setup_cron.sh` to collect system performance data and wait 10-30 minutes.
+   Navigate to the `smd_package_linux` directory and execute the Bash script `setup_cron.sh` to set up cron (automatically runs the data collection scripts) and wait 10-30 minutes.
    ```bash
-   cd scripts
-   ./setup_cron.sh
+   anon@ymous:~/.../smd_package_linux$ ls
+   LICENSE  README.md  remove  run  setup
+   anon@ymous:~/.../smd_package_linux$ ./setup 
+   SYSTEM MONITORING DASHBOARD: Cron job added successfully.
    ```
-
 2. **Run the Dashboard**
-   Navigate to the `dashboard` directory and start the Flask application.
+   In the same directory run the `run` script.
    ```bash
-   cd dashboard
-   python app.py
+   anon@ymous:~/.../smd_package_linux$ ./run
+   * Serving Flask app 'app'
+   * Debug mode: off
+   WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+   * Running on http://127.0.0.1:8429
+    Press CTRL+C to quit
    ```
-
-## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+### Deletion or Suspension
+1. **Remove Cron**
+   Navigate to the `smd_package_linux` directory and execute the Bash script `remove`
+   ```bash
+   anon@ymous:~/smd_package_linux$ ls
+   LICENSE  README.md  remove  run  setup
+   anon@ymous:~/smd_package_linux$ ./remove 
+   SYSTEM MONITORING DASHBOARD: Cron job removed successfully.
+   ```
+2. **Delete the Directory**
+   Navigate to the parent directory of the `smd_package_linux` then delete the directory and all its contents.
+   ```bash
+   anon@ymous:~/smd_package_linux$ cd ..
+   anon@ymous:~$ rm -rf smd_package_linux/
+   ```
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. Please take a look at the [LICENSE](LICENSE) file for details.
 
 ## Contacts
-- **Project Manager:** [Hezekiah Shobayo: ishob080@uottawa.ca] [Adam Norris: anorr029@uottawa.ca]
+- **Project Manager:** Hezekiah Shobayo: ishob080@uottawa.ca Adam Norris: anorr029@uottawa.ca
 - **Developers:** [Hezekiah Shobayo](https://www.linkedin.com/in/hezekiah-shobayo/), [Adam Norris](https://www.linkedin.com/in/adam-j-norris/)
 
 
