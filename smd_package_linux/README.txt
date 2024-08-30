@@ -19,7 +19,8 @@ Technologies Used:
 
 Package Structure:
 - smd_package_linux/
-  - README.md              # Package documentation
+  - README.md              # Package documentation in markdown
+  - README.txt             # Package documentation in text
   - LICENSE                # License 
   - setup                  # Script to setup cron
   - run                    # Script to run the visualization
