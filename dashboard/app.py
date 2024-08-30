@@ -42,11 +42,11 @@ def index():
 
 @app.route('/shutdown', methods=['POST'])
 def shutdown():
-    os._exit(0)
+    os._exit(0)  # Use os._exit(0) for an immediate shutdown
     
 def open_browser():
     time.sleep(3)
-    webbrowser.open("http://127.0.0.1:8429")
+    webbrowser.open_new_tab("http://127.0.0.1:8429")
     
 
 if __name__ == '__main__':
