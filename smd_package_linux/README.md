@@ -22,10 +22,13 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
 - system-monitoring-dashboard/
   - .venv                  # Directory for virtual environment
   - data/                  # Directory to store collected data
-  - json_datalogs/         # Directiory to store collected data in JSON format
+  - json_datalog/          # Directiory to store collected data in JSON format
   - scripts/               # Bash scripts for data collection
   - visualizations/        # Python scripts for data visualization
   - dashboard/             # Flask application for the dashboard
+  - smd_package_linux/     # Directory for Linux package
+  - smd_package_macos/     # Directory for macOS package
+  - webpage/               # Webpage directory for packages download
   - docs/                  # Directory for additional documentation
     - initial_documentaion.md
     - sprint_1_documentation.md
@@ -40,7 +43,11 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
 ### Prerequisites
 - Python 3.12.3
 - Bash
+- Browser
 - Virtualenv (optional but recommended)
+
+### Download
+Visit the [System-Monitoring-Dashboard](https://system-monitoring-dashboard.pages.dev/) webpage and download the package specific to your OS, unzip the package and refer to the README for setup instructions
 
 ### Installation
 1. **Clone the Repository**
@@ -61,31 +68,18 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
    ```
 
 ### Usage
-1. **Run Data Collection Scripts**
-   Navigate to the `scripts` directory and execute the Bash scripts to collect system performance data.
+1. **Setup Cron**
+   Navigate to the `scripts` directory and execute the Bash script `setup_cron.sh` to collect system performance data and wait 10-30 minutes.
    ```bash
    cd scripts
-   ./collect_cpu_usage.sh
-   ./collect_memory_usage.sh
-   ./collect_disk_space.sh
-   ./collect_network_activity.sh
+   ./setup_cron.sh
    ```
 
-2. **Run Data Visualization Scripts**
-   Navigate to the `visualizations` directory and execute the Python scripts to generate visualizations.
-   ```bash
-   cd visualizations
-   python visualize_cpu_usage.py
-   python visualize_memory_usage.py
-   python visualize_disk_space.py
-   python visualize_network_activity.py
-   ```
-
-3. **Run the Dashboard**
+2. **Run the Dashboard**
    Navigate to the `dashboard` directory and start the Flask application.
    ```bash
    cd dashboard
-   flask run
+   python app.py
    ```
 
 ## Contributing
@@ -106,4 +100,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [Flask](https://flask.palletsprojects.com/)
 - [Matplotlib](https://matplotlib.org/)
 - [Plotly](https://plotly.com/)
+
 
