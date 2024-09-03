@@ -52,7 +52,7 @@ Visit the [System-Monitoring-Dashboard](https://system-monitoring-dashboard.page
 ### Installation
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-organization/system-monitoring-dashboard.git
+   git clone https://github.com/uottawa-developer-team/system-monitoring-dashboard.git
    cd system-monitoring-dashboard
    ```
 
