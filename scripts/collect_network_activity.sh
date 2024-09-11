@@ -3,7 +3,9 @@
 #get current date & time
 timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 
-primary_interface=$(ip route | grep default | awk '{print $5}') #use ip command to get primary network interface
+# primary_interface=$(ip route | grep default | awk '{print $5}') #use ip command to get primary network interface
+
+primary_interface=$(ip route | grep default | sort -k5 -n | head -n 1 | awk '{print $5}')
 
 if [[ -n $primary_interface ]]; then #if not null
 
@@ -11,8 +13,13 @@ if [[ -n $primary_interface ]]; then #if not null
 	interface_stats=$(ifconfig "$primary_interface")
 
 	#use awk to extract RX & TX bytes
-	rx_bytes=$(echo "$interface_stats" | awk '/RX packets/ {print $5}') #received bytes
-	tx_bytes=$(echo "$interface_stats" | awk '/TX packets/ {print $5}') #transmitted bytes
+	#rx_bytes=$(echo "$interface_stats" | awk '/RX packets/ {print $5}') #received bytes
+	#tx_bytes=$(echo "$interface_stats" | awk '/TX packets/ {print $5}') #transmitted bytes
+	
+	#get network stats for primary interface (e.g. eth0)
+	rx_bytes=$(cat /sys/class/net/"$primary_interface"/statistics/rx_bytes) # received bytes
+	tx_bytes=$(cat /sys/class/net/"$primary_interface"/statistics/tx_bytes) # transmitted bytes
+	
 
 	#combine RX & TX bytes into stats string
 	network_stats="$interface_name RX bytes: $rx_bytes TX bytes: $tx_bytes"
