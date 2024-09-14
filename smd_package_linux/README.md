@@ -17,70 +17,54 @@ The System Monitoring Dashboard is a tool designed to monitor and visualize syst
 - Matplotlib
 - Plotly
 
-## Project Structure
-```
-- system-monitoring-dashboard/
-  - .venv                  # Directory for virtual environment
-  - data/                  # Directory to store collected data
-  - json_datalog/          # Directiory to store collected data in JSON format
-  - scripts/               # Bash scripts for data collection
-  - visualizations/        # Python scripts for data visualization
-  - dashboard/             # Flask application for the dashboard
-  - smd_package_linux/     # Directory for Linux package
-  - smd_package_macos/     # Directory for macOS package
-  - webpage/               # Webpage directory for packages download
-  - docs/                  # Directory for additional documentation
-    - initial_documentaion.md
-    - sprint_1_documentation.md
-    - sprint_2_documentation.md
-    - sprint_3_documentation.md
-  - README.md              # Project documentation
-  - requirements.txt       # Required Python libraries
-  - LICENSE                # License 
-```
-
 ## Getting Started
 ### Prerequisites
 - Python 3.12.3
 - Bash
 - Browser
 - Virtualenv (optional but recommended)
+- jq
+- pip
 
 ### Download
 Visit the [System-Monitoring-Dashboard](https://system-monitoring-dashboard.pages.dev/) webpage and download the package specific to your OS, unzip the package and refer to the README for setup instructions
 
-### Installation
-1. **Clone the Repository**
+### Setup
+1. **Set Up Virtual Environment (optional)**
    ```bash
-   git clone https://github.com/uottawa-developer-team/system-monitoring-dashboard.git
-   cd system-monitoring-dashboard
+   python3 -m venv .venv
+   source .venv/bin/activate
    ```
-
-2. **Set Up Virtual Environment (optional)**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install Python Dependencies**
+2. **Install Python Dependencies**
    ```bash
    pip install -r requirements.txt
    ```
-
+3. **Install jq**
+   ```bash
+   sudo apt install jq
+   ```
+4. **Setup Cron**
+   In the first level of your current directory `smd_package_linux`, run the `setup` script and wait at least 10 minutes before attempting to run the visualization
+   ```bash
+   ./setup
+   ```
 ### Usage
-1. **Setup Cron**
-   Navigate to the `scripts` directory and execute the Bash script `setup_cron.sh` to collect system performance data and wait 10-30 minutes.
+1. **Run the Dashboard**
+   In the first level of your current directory `smd_package_linux`, run the `run` script.
    ```bash
-   cd scripts
-   ./setup_cron.sh
+   ./run
    ```
+   The plot will automatically open up using your default browser.
 
-2. **Run the Dashboard**
-   Navigate to the `dashboard` directory and start the Flask application.
-   ```bash
-   cd dashboard
-   python app.py
-   ```
+2. **Closing the Dashboard**
+   To close the dashboard, clost the tab then on your terminal where the local server was run, type in `Ctrl+C` to terminate the process.
+
+### Removal
+1. **Removing Cron**
+   To remove the cron job, run the `remove` script. You can stop here if you simply want to halt the periodic data collection.
+
+2. **Delete the Directory**
+   To delete the directory, navigate to the parent of the `smd_package_linux` and remove the directory and all it's contents using `rm -rf smd_package_linux`
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
