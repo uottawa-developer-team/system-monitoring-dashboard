@@ -3,7 +3,9 @@
 #get current date & time
 timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 
-primary_interface=$(ip route | grep default | awk '{print $5}') #use ip command to get primary network interface
+# primary_interface=$(ip route | grep default | awk '{print $5}') #use ip command to get primary network interface
+
+primary_interface=$(ip route | grep default | sort -k5 -n | head -n 1 | awk '{print $5}')
 
 if [[ -n $primary_interface ]]; then #if not null
 
