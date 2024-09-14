@@ -1,0 +1,5 @@
+# Plotly: Interactive graphing library
+plotly
+
+# Flask: Lightweight WSGI web application framework
+flask

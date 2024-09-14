@@ -1,0 +1,194 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-image: url('bg_01.jpg');
+    background-repeat: repeat; /* Repeats the background image */
+    background-attachment: fixed; /* Ensures the background stays fixed while scrolling */
+    background-size: cover;
+}
+
+.header {
+    font-size: 5vh;
+    padding-left: 3vw;
+    font-family: "Impact", Arial #bab7bb, sans-serif;
+    color: #bab7bb;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem;
+    background-color: #000000;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0 0 30px #bab7bb; /* add a subtle box shadow */
+}
+.navbar a {
+    color: #000000;
+    color: #bab7bb;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1vw;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    font-family: "Lucida Console", "Courier New", monospace;
+    box-shadow: 0 0 10px #bab7bb; /* add a subtle box shadow */
+}
+.navbar a:hover {
+    background-color: #bab7bb;
+    color: #000000;
+    transform: scale(1.1);
+}
+
+#menu-bar.hidden {
+    transform: translateY(-100%);
+}
+
+.scroll-top {
+    position: fixed;
+    z-index: 9999; /* Ensure it is on top of other elements */
+    cursor: pointer;
+    transition: all .50s ease-in-out, background-color 0.5s ease-in-out;
+    bottom: 3rem;
+    right: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    padding: 0.5em;
+    width: 2rem;
+    height: 2rem;
+    background-color: #000000;
+    opacity: 1;
+    svg{
+        fill:#bab7bb
+    }
+    box-shadow: 0 0 20px rgba(186, 183, 187, 1); /* add a subtle box shadow */
+}
+
+.scroll-top:hover {
+    background-color: #bab7bb;
+    svg{
+        fill:#000000
+    }
+    transform: scale(1.1);
+}
+
+.svg-icon {
+    fill: #000000;
+    width: 24px;
+    height: 24px;
+}
+
+.firstpage {
+    /* background-image: url('bg_01.jpg'); */
+    background-size: 100% 100vh;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.hero-section {
+    position: absolute; /* make it absolute positioned */
+    top: 150px; /* adjust the top position to move it down */
+    left: 40px; /* align it with the left edge of the screen */
+    width: 30%; /* keep the width as 30% */
+    height: 70%;
+    max-width: 50%; /* keep the max-width as 50% */
+    padding: 20px; /* keep the padding */
+    box-sizing: border-box; /* keep the box-sizing */
+    /* background-color: #696161; keep the background color */
+    border-radius: 10px; /* keep the border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* keep the box shadow */
+    
+    
+}
+
+
+.hero-section {
+    background-color: #696161; /* add a light gray background */
+    background-color: black;
+    width: 50vw;
+    border-radius: 10px; /* add a subtle border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle box shadow */
+    box-shadow: 0 0 30px rgba(186, 183, 187, 1); /* add a subtle box shadow */
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 1rem;    
+}
+
+.hero-section p, h1{
+    color: #bab7bb;
+}
+
+
+
+.hero-section {
+    
+    height: 75vh; /* Let height adjust based on content */
+    max-width: 80vw; /* Keep max-width for larger screens */
+    padding: 1.5em; /* Adjust padding with em for flexibility */
+    border-radius: 20px;
+    /* Responsive font size */
+    font-size: calc(0.5em + 0.6vw);
+}
+
+.hero-section h1 {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        width: 50vw; /* On large screens, use 30% width */
+        left: 25vw; /* Center it horizontally */
+        top: 20vh; /* Adjust top for large screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section {
+        width: 50vw; /* On large screens, use 30% width */
+        left: 25vw; /* Center it horizontally */
+        top: 20vh; /* Adjust top for large screens */
+    }
+}
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box; /* add this property */
+    border-radius: 10px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.plot {
+    width: 80vw;
+    margin-bottom: 5vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden; /* prevent scrollbars */
+    box-shadow: 0 0 20px rgba(186, 183, 187, 1); /* add a subtle box shadow */
+    
+}
+
+.plots-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+

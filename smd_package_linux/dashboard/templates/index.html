@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="firstpage">
+    <div class="navbar" id="menu-bar">
+        <h1 class="header">Data Visualizations</h1>
+        <a href="#combined-plot" class="scroll-link">Overview</a>
+        <a href="#cpu-plot" class="scroll-link">CPU Usage</a>
+        <a href="#memory-plot" class="scroll-link">RAM Usage</a>
+        <a href="#network-plot" class="scroll-link">Network Usage</a>
+        <a href="#disk-plot" class="scroll-link">DISK Usage</a>
+    </div>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to the <br> System Monitoring Dashboard</h1>
+        <p>
+            This dashboard provides real-time insights into your system's performance metrics, including CPU usage, memory consumption, disk space, and network activity. Unlike Windows, which comes with built-in tools for system monitoring, UNIX systems often lack such comprehensive visualization tools. Our goal is to fill that gap by offering an intuitive and interactive interface for UNIX users, enabling them to monitor and analyze their system's health with ease.
+        </p>
+        <p>
+            By leveraging the power of shell scripting and data visualization libraries, this dashboard collects and processes system data at regular intervals. The data is then transformed into visually appealing plots that help you quickly understand the status and trends of your system's resources. Navigate through the plots using the links above to explore detailed visualizations and gain a deeper understanding of your system's health.
+        </p>
+        <p>
+            Whether you are a system administrator, developer, or power user, this tool is designed to provide the insights you need to ensure your system runs smoothly and efficiently.
+        </p>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 System Monitoring Dashboard. All rights reserved.</p>
+    </div>
+</div>
+
+<a class="scroll-top" id="btnScrollTop">
+    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+</a>
+
+<div class="plots-container">
+    <p id="combined-plot"></p>
+    <div class="plot" >
+        <div>{{ combined_plot | safe }}</div>
+    </div>
+    <p id="cpu-plot"></p>
+    <div class="plot">
+        <div>{{ cpu_plot | safe }}</div>
+    </div>
+    <p id="memory-plot"></p>
+    <div class="plot" >
+        <div>{{ memory_plot | safe }}</div>
+    </div>
+    <p id="network-plot"></p>
+    <div class="plot" >
+        <div>{{ network_plot | safe }}</div>
+    </div>
+    <p id="disk-plot"></p>
+    <div class="plot" >
+        <div>{{ disk_plot | safe }}</div>
+    </div>
+</div>
+{% endblock %}
