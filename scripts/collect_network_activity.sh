@@ -9,35 +9,14 @@ primary_interface=$(ip route | grep default | sort -k5 -n | head -n 1 | awk '{pr
 
 if [[ -n $primary_interface ]]; then #if not null
 
-	#get network stats for primary interface (e.g. eth0)
-	interface_stats=$(ifconfig "$primary_interface")
-
-	#use awk to extract RX & TX bytes
-	#rx_bytes=$(echo "$interface_stats" | awk '/RX packets/ {print $5}') #received bytes
-	#tx_bytes=$(echo "$interface_stats" | awk '/TX packets/ {print $5}') #transmitted bytes
-	
-	#get network stats for primary interface (e.g. eth0)
-	rx_bytes=$(cat /sys/class/net/"$primary_interface"/statistics/rx_bytes) # received bytes
-	tx_bytes=$(cat /sys/class/net/"$primary_interface"/statistics/tx_bytes) # transmitted bytes
-	
-
-	#combine RX & TX bytes into stats string
-	network_stats="$interface_name RX bytes: $rx_bytes TX bytes: $tx_bytes"
+	rx_bytes=$(cat /sys/class/net/"primary_interface"/statistics/rx_bytes)
+	rx_bytes=$(cat /sys/class/net/"primary_interface"/statistics/tx_bytes)
 
 else #if null
-	network_stats="ERROR: No primary interface detected"
 	primary_interface="No Primary interface detected"
 	rx_bytes=0
 	tx_bytes=0
 fi
-
-#combine interfaces & stats into clean data string
-clean_data="Primary Interface: $primary_interface\nStats: $network_stats"
-
-# #log network activity with timestamp
-# echo "$timestamp" >> "$(dirname "$0")/../data/network_activity.log"
-# echo -e "$clean_data" >> "$(dirname "$0")/../data/network_activity.log"
-
 
 #create a json representation of the data
 create_json(){

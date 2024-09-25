@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get the absolute path of the populate_variable_data.sh script
-SCRIPT_PATH=$(realpath "$(dirname "$0")/.processes/scripts/smd_process.sh")
+SCRIPT_PATH=$(realpath "$(dirname "$0")/smd_process.sh")
 
 # Check if the script file exists
 if [[ ! -f "$SCRIPT_PATH" ]]; then

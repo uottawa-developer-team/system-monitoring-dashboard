@@ -3,6 +3,11 @@
 ## Project Description
 The System Monitoring Dashboard is a tool designed to monitor and visualize system performance metrics such as CPU usage, memory usage, disk space, and network activity. The project leverages Bash for data collection and Python for data visualization, using libraries such as Matplotlib and Plotly to create interactive and informative dashboards.
 
+
+### Demo
+https://github.com/user-attachments/assets/fdd25ce1-e03d-4a2c-823a-cae627f0e30c
+
+
 ## Features
 - Real-time monitoring of system performance metrics
 - Data collection using Bash scripts
@@ -100,4 +105,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [Flask](https://flask.palletsprojects.com/)
 - [Matplotlib](https://matplotlib.org/)
 - [Plotly](https://plotly.com/)
+
 

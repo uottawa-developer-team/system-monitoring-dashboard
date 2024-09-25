@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ensure that the script path is absolute
-SCRIPT_PATH="$(realpath ./.processes/scripts/smd_process.sh)"
+SCRIPT_PATH="$(realpath ./smd_process.sh)"
 CRON_JOB="0 * * * * $SCRIPT_PATH"
 
 # Remove the cron job if it exists
